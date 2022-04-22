@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1650668117 source:/home/zmadden1/Desktop/TeamFWordle/main.cpp
+	<FL/Fl.H>
+	<FL/Fl_Window.H>
+	<FL/Fl_Box.H>
+	"gameboardwindow.h"
+
+1650667489 source:/home/zmadden1/Desktop/TeamFWordle/src/View/gameboardwindow.cpp
+	"gameboardwindow.h"
+	<FL/fl_types.h>
+	<Fl/fl_draw.H>
+
+1650667474 /home/zmadden1/Desktop/TeamFWordle/include/View/gameboardwindow.h
+	<FL/Fl_Button.H>
+	<FL/Fl_Window.H>
+
