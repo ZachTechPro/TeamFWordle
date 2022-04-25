@@ -20,6 +20,12 @@ namespace view
 GameBoardWindow::GameBoardWindow(int width, int height, const char* title) : Fl_Window(width, height, title)
 {
     this-> performFirstTimeSetup();
+  //  this-> highLightLetterCell(this-> wordGrid[0], 3); first row, first letter,
+   // this-> highLightLetterCell(this-> wordGrid[5], 3);// second row, first letter,
+  //  this-> highLightLetterCell(this-> wordGrid[10], 3); third row, first letter,
+  //  this-> highLightLetterCell(this-> wordGrid[15], 3); fourth row, first letter,
+  //  this-> highLightLetterCell(this-> wordGrid[20], 3); fifth row, first letter,
+  //  this-> highLightLetterCell(this-> wordGrid[25], 3); sixth row, first letter
 }
 
 /** \brief call back for handling submit button click
@@ -40,46 +46,49 @@ void GameBoardWindow::cbSubmitGuess(Fl_Widget* widget, void* data)
  */
 void GameBoardWindow::submitGuess()
 {
-//    string userGuess1 = this-> guessWordInput1-> value();
- //   string userGuess2 = this-> guessWordInput2-> value();
- //   string userGuess3 = this-> guessWordInput3-> value();
- //   string userGuess4 = this-> guessWordInput4-> value();
-  //  string userGuess5 = this-> guessWordInput5-> value();
-  //  string userGuess = userGuess1 + userGuess2 + userGuess3 + userGuess4 + userGuess5;
-
     string userGuess = "";
+
     for (int i = 0; i <= 4; i++)
     {
-        userGuess += this-> wordGrid[i]-> value();
+        userGuess += this-> wordGrid[this-> rowNumber + i]-> value();
     }
 
     if (userGuess.length() == 5)
     {
-       int* solution = this-> gbController-> checkGuessAsCorrect(userGuess);
+        int* solution = this-> gbController-> checkGuessAsCorrect(userGuess);
 
         for (int i = 0; i <= 4; i++)
         {
-            this-> highLightLetterCell(this-> wordGrid[i], solution[i]);
+            this-> highLightLetterCell(this-> wordGrid[this-> rowNumber + i], solution[i]);
         }
+        this-> rowNumber += 5;
     }
+
+      cout << "userGuess: "<< userGuess << endl;
+      cout << this-> rowNumber << endl;
 }
 
 /**< private */
 void GameBoardWindow::highLightLetterCell(Fl_Input* inputCell, int positionFlag)
 {
-     if(positionFlag == 2){
+    if(positionFlag == 2)
+    {
         inputCell-> color(FL_YELLOW);
-        inputCell-> deactivate();
-        inputCell-> activate();
-       }else if(positionFlag == 3){
+    }
+    else if(positionFlag == 3)
+    {
         inputCell-> color(FL_GREEN);
-        inputCell-> deactivate();
-        inputCell-> activate();
-       }else{
-           inputCell-> color(FL_WHITE);
-        inputCell-> deactivate();
-        inputCell-> activate();
-       }
+    }
+
+    this-> updateColorAndDisable(inputCell);
+}
+
+/**< private */
+void GameBoardWindow::updateColorAndDisable(Fl_Input* inputCell)
+{
+    inputCell-> deactivate();
+    inputCell-> activate();
+    inputCell-> deactivate();
 }
 
 
@@ -88,18 +97,24 @@ void GameBoardWindow::performFirstTimeSetup()
 {
     this-> gbController = new GameBoardController();
 
-    int thing = 120;
-    for (int i = 0; i < 5; i++)
+    int rowX = 150;
+    int rowY = rowX;
+    int gridIndex = 0;
+    for (int rows = 0; rows < 6; rows++)
     {
-        thing += 30;
-        this->wordGrid[i] = new Fl_Input(thing, 120, 25, 25);
+        for (int column = 0; column < 5; column++)
+        {
+            rowX += 30;
+            this-> wordGrid[gridIndex++] = new Fl_Input(rowX, rowY, 25, 25);
+        }
+        rowY += 30;
+        rowX = 150;
     }
 
-
     this-> submitGuessButton = new Fl_Button(320, 330, 70, 30, "Submit");
-
     this-> submitGuessButton-> callback(cbSubmitGuess, this);
     this-> gbController-> loadWordsForPlay();
+    this-> rowNumber = 0;
 }
 
 /** \brief Destructor
@@ -109,7 +124,6 @@ GameBoardWindow::~GameBoardWindow()
 {
     delete this-> gbController;
     delete this-> submitGuessButton;
-    delete[] this-> wordGrid;
 }
 
 }

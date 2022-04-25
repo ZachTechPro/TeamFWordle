@@ -18,12 +18,9 @@ class GameBoardWindow : public Fl_Window
     private:
         Fl_Button* submitGuessButton;
         Fl_Input* wordGrid[30];
-      //  Fl_Input* guessWordInput1;
-       // Fl_Input* guessWordInput2;
-      //  Fl_Input* guessWordInput3;
-      //  Fl_Input* guessWordInput4;
-     //   Fl_Input* guessWordInput5;
+        void updateColorAndDisable(Fl_Input* inputCell);
         GameBoardController* gbController;
+        int rowNumber;
         void performFirstTimeSetup();
         void highLightLetterCell(Fl_Input* inputCell, int positionFlag);
 
