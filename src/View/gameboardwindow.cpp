@@ -20,12 +20,6 @@ namespace view
 GameBoardWindow::GameBoardWindow(int width, int height, const char* title) : Fl_Window(width, height, title)
 {
     this-> performFirstTimeSetup();
-  //  this-> highLightLetterCell(this-> wordGrid[0], 3); first row, first letter,
-   // this-> highLightLetterCell(this-> wordGrid[5], 3);// second row, first letter,
-  //  this-> highLightLetterCell(this-> wordGrid[10], 3); third row, first letter,
-  //  this-> highLightLetterCell(this-> wordGrid[15], 3); fourth row, first letter,
-  //  this-> highLightLetterCell(this-> wordGrid[20], 3); fifth row, first letter,
-  //  this-> highLightLetterCell(this-> wordGrid[25], 3); sixth row, first letter
 }
 
 /** \brief call back for handling submit button click
