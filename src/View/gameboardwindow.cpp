@@ -40,42 +40,62 @@ void GameBoardWindow::cbSubmitGuess(Fl_Widget* widget, void* data)
  */
 void GameBoardWindow::submitGuess()
 {
-    string userGuess1 = this-> guessWordInput1-> value();
-    string userGuess2 = this-> guessWordInput2-> value();
-    string userGuess3 = this-> guessWordInput3-> value();
-    string userGuess4 = this-> guessWordInput4-> value();
-    string userGuess5 = this-> guessWordInput5-> value();
-    string userGuess = userGuess1 + userGuess2 + userGuess3 + userGuess4 + userGuess5;
+//    string userGuess1 = this-> guessWordInput1-> value();
+ //   string userGuess2 = this-> guessWordInput2-> value();
+ //   string userGuess3 = this-> guessWordInput3-> value();
+ //   string userGuess4 = this-> guessWordInput4-> value();
+  //  string userGuess5 = this-> guessWordInput5-> value();
+  //  string userGuess = userGuess1 + userGuess2 + userGuess3 + userGuess4 + userGuess5;
 
+    string userGuess = "";
+    for (int i = 0; i <= 4; i++)
+    {
+        userGuess += this-> wordGrid[i]-> value();
+    }
 
     if (userGuess.length() == 5)
     {
        int* solution = this-> gbController-> checkGuessAsCorrect(userGuess);
-       if(solution[0] == 2){
-        this->guessWordInput1->color(FL_YELLOW);
-        this->guessWordInput1->deactivate();
-        this->guessWordInput1->activate();
-       }else if(solution[0] == 3){
-        this->guessWordInput1->color(FL_GREEN);
-        this->guessWordInput1->deactivate();
-        this->guessWordInput1->activate();
-       }else{
-           this->guessWordInput1->color(FL_WHITE);
-        this->guessWordInput1->deactivate();
-        this->guessWordInput1->activate();
-       }
+
+        for (int i = 0; i <= 4; i++)
+        {
+            this-> highLightLetterCell(this-> wordGrid[i], solution[i]);
+        }
     }
 }
+
+/**< private */
+void GameBoardWindow::highLightLetterCell(Fl_Input* inputCell, int positionFlag)
+{
+     if(positionFlag == 2){
+        inputCell-> color(FL_YELLOW);
+        inputCell-> deactivate();
+        inputCell-> activate();
+       }else if(positionFlag == 3){
+        inputCell-> color(FL_GREEN);
+        inputCell-> deactivate();
+        inputCell-> activate();
+       }else{
+           inputCell-> color(FL_WHITE);
+        inputCell-> deactivate();
+        inputCell-> activate();
+       }
+}
+
 
 /**< private */
 void GameBoardWindow::performFirstTimeSetup()
 {
     this-> gbController = new GameBoardController();
-    this-> guessWordInput1 = new Fl_Input(150, 120, 25, 25, "Enter your guess:");
-    this-> guessWordInput2 = new Fl_Input(180, 120, 25, 25);
-    this-> guessWordInput3 = new Fl_Input(210, 120, 25, 25);
-    this-> guessWordInput4 = new Fl_Input(240, 120, 25, 25);
-    this-> guessWordInput5 = new Fl_Input(270, 120, 25, 25);
+
+    int thing = 120;
+    for (int i = 0; i < 5; i++)
+    {
+        thing += 30;
+        this->wordGrid[i] = new Fl_Input(thing, 120, 25, 25);
+    }
+
+
     this-> submitGuessButton = new Fl_Button(320, 330, 70, 30, "Submit");
 
     this-> submitGuessButton-> callback(cbSubmitGuess, this);
@@ -89,11 +109,7 @@ GameBoardWindow::~GameBoardWindow()
 {
     delete this-> gbController;
     delete this-> submitGuessButton;
-    delete this-> guessWordInput1;
-    delete this-> guessWordInput2;
-    delete this-> guessWordInput3;
-    delete this-> guessWordInput4;
-    delete this-> guessWordInput5;
+    delete[] this-> wordGrid;
 }
 
 }

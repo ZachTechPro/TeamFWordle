@@ -16,15 +16,16 @@ class GameBoardWindow : public Fl_Window
 {
 
     private:
-        Fl_Table* wordGrid;
         Fl_Button* submitGuessButton;
-        Fl_Input* guessWordInput1;
-        Fl_Input* guessWordInput2;
-        Fl_Input* guessWordInput3;
-        Fl_Input* guessWordInput4;
-        Fl_Input* guessWordInput5;
+        Fl_Input* wordGrid[30];
+      //  Fl_Input* guessWordInput1;
+       // Fl_Input* guessWordInput2;
+      //  Fl_Input* guessWordInput3;
+      //  Fl_Input* guessWordInput4;
+     //   Fl_Input* guessWordInput5;
         GameBoardController* gbController;
         void performFirstTimeSetup();
+        void highLightLetterCell(Fl_Input* inputCell, int positionFlag);
 
     public:
         static void cbSubmitGuess(Fl_Widget* widget, void* data);
