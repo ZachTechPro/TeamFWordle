@@ -22,7 +22,7 @@ GuessChecker::GuessChecker()
  */
 int* GuessChecker::checkGuessAsCorrect(const string& userGuess)
 {
-    int resultFlags[5];
+    int* resultFlags = new int[5];
     for (std::string::size_type i = 0; i < userGuess.size(); i++)
     {
 
@@ -39,7 +39,7 @@ int* GuessChecker::checkGuessAsCorrect(const string& userGuess)
         }
 
     }
-
+    cout<<to_string(resultFlags[1]) + "" + to_string(resultFlags[2]) + "" + to_string(resultFlags[3]) + "" + to_string(resultFlags[4]) + "" + to_string(resultFlags[0]);
     return resultFlags;
 }
 

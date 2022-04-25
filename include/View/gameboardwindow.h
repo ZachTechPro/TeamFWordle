@@ -18,7 +18,11 @@ class GameBoardWindow : public Fl_Window
     private:
         Fl_Table* wordGrid;
         Fl_Button* submitGuessButton;
-        Fl_Input* guessWordInput;
+        Fl_Input* guessWordInput1;
+        Fl_Input* guessWordInput2;
+        Fl_Input* guessWordInput3;
+        Fl_Input* guessWordInput4;
+        Fl_Input* guessWordInput5;
         GameBoardController* gbController;
         void performFirstTimeSetup();
 

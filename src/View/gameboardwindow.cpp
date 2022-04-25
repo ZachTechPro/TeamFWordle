@@ -40,10 +40,30 @@ void GameBoardWindow::cbSubmitGuess(Fl_Widget* widget, void* data)
  */
 void GameBoardWindow::submitGuess()
 {
-    string userGuess = this-> guessWordInput-> value();
+    string userGuess1 = this-> guessWordInput1-> value();
+    string userGuess2 = this-> guessWordInput2-> value();
+    string userGuess3 = this-> guessWordInput3-> value();
+    string userGuess4 = this-> guessWordInput4-> value();
+    string userGuess5 = this-> guessWordInput5-> value();
+    string userGuess = userGuess1 + userGuess2 + userGuess3 + userGuess4 + userGuess5;
+
+
     if (userGuess.length() == 5)
     {
-       this-> gbController-> checkGuessAsCorrect(userGuess);
+       int* solution = this-> gbController-> checkGuessAsCorrect(userGuess);
+       if(solution[0] == 2){
+        this->guessWordInput1->color(FL_YELLOW);
+        this->guessWordInput1->deactivate();
+        this->guessWordInput1->activate();
+       }else if(solution[0] == 3){
+        this->guessWordInput1->color(FL_GREEN);
+        this->guessWordInput1->deactivate();
+        this->guessWordInput1->activate();
+       }else{
+           this->guessWordInput1->color(FL_WHITE);
+        this->guessWordInput1->deactivate();
+        this->guessWordInput1->activate();
+       }
     }
 }
 
@@ -51,7 +71,11 @@ void GameBoardWindow::submitGuess()
 void GameBoardWindow::performFirstTimeSetup()
 {
     this-> gbController = new GameBoardController();
-    this-> guessWordInput = new Fl_Input(200, 330, 100, 25, "Enter your guess:");
+    this-> guessWordInput1 = new Fl_Input(150, 120, 25, 25, "Enter your guess:");
+    this-> guessWordInput2 = new Fl_Input(180, 120, 25, 25);
+    this-> guessWordInput3 = new Fl_Input(210, 120, 25, 25);
+    this-> guessWordInput4 = new Fl_Input(240, 120, 25, 25);
+    this-> guessWordInput5 = new Fl_Input(270, 120, 25, 25);
     this-> submitGuessButton = new Fl_Button(320, 330, 70, 30, "Submit");
 
     this-> submitGuessButton-> callback(cbSubmitGuess, this);
@@ -65,7 +89,11 @@ GameBoardWindow::~GameBoardWindow()
 {
     delete this-> gbController;
     delete this-> submitGuessButton;
-    delete this-> guessWordInput;
+    delete this-> guessWordInput1;
+    delete this-> guessWordInput2;
+    delete this-> guessWordInput3;
+    delete this-> guessWordInput4;
+    delete this-> guessWordInput5;
 }
 
 }

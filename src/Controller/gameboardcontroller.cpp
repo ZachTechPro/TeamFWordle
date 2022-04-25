@@ -19,9 +19,9 @@ void GameBoardController::loadWordsForPlay()
     this-> fileIo-> loadWords();
 }
 
-void GameBoardController::checkGuessAsCorrect(const string& userGuess)
+int* GameBoardController::checkGuessAsCorrect(const string& userGuess)
 {
-   this-> guessChecker-> checkGuessAsCorrect(userGuess);
+   return this-> guessChecker-> checkGuessAsCorrect(userGuess);
 }
 
 /** \brief Destructor

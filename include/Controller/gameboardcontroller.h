@@ -9,7 +9,7 @@ namespace Controller
 class GameBoardController
 {
     public:
-        void checkGuessAsCorrect(const string& userGuess);
+        int* checkGuessAsCorrect(const string& userGuess);
         GameBoardController();
         void loadWordsForPlay();
         virtual ~GameBoardController();
