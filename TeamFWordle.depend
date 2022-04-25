@@ -13,7 +13,7 @@
 	<vector>
 	"gameboardcontroller.h"
 
-1650733729 source:/home/zmadden1/Desktop/TeamFWordle/src/View/gameboardwindow.cpp
+1650746009 source:/home/zmadden1/Desktop/TeamFWordle/src/View/gameboardwindow.cpp
 	"gameboardwindow.h"
 	<FL/fl_types.h>
 	<Fl/fl_draw.H>
@@ -21,7 +21,7 @@
 	<iostream>
 	<vector>
 
-1650732113 source:/home/zmadden1/Desktop/TeamFWordle/src/IO/fileio.cpp
+1650733771 source:/home/zmadden1/Desktop/TeamFWordle/src/IO/fileio.cpp
 	"fileio.h"
 	<iostream>
 	<string>
@@ -38,9 +38,18 @@
 
 1650732700 /home/zmadden1/Desktop/TeamFWordle/include/Model/player.h
 
-1650733503 /home/zmadden1/Desktop/TeamFWordle/include/Controller/gameboardcontroller.h
+1650745915 /home/zmadden1/Desktop/TeamFWordle/include/Controller/gameboardcontroller.h
 	"fileio.h"
+	"guesschecker.h"
 
-1650733749 source:/home/zmadden1/Desktop/TeamFWordle/src/Controller/gameboardcontroller.cpp
+1650745977 source:/home/zmadden1/Desktop/TeamFWordle/src/Controller/gameboardcontroller.cpp
 	"gameboardcontroller.h"
+
+1650745817 source:/home/zmadden1/Desktop/TeamFWordle/src/Utils/guesschecker.cpp
+	"guesschecker.h"
+	<string>
+	<iostream>
+
+1650745407 /home/zmadden1/Desktop/TeamFWordle/include/Utils/guesschecker.h
+	<string>
 

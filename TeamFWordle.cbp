@@ -18,6 +18,7 @@
 					<Add directory="include/IO" />
 					<Add directory="include/Controller" />
 					<Add directory="include/Model" />
+					<Add directory="include/Utils" />
 				</Compiler>
 			</Target>
 		</Build>
@@ -30,11 +31,13 @@
 		<Unit filename="include/Controller/gameboardcontroller.h" />
 		<Unit filename="include/IO/fileio.h" />
 		<Unit filename="include/Model/player.h" />
+		<Unit filename="include/Utils/guesschecker.h" />
 		<Unit filename="include/View/gameboardwindow.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Controller/gameboardcontroller.cpp" />
 		<Unit filename="src/IO/fileio.cpp" />
 		<Unit filename="src/Model/player.cpp" />
+		<Unit filename="src/Utils/guesschecker.cpp" />
 		<Unit filename="src/View/gameboardwindow.cpp" />
 		<Unit filename="words.txt" />
 		<Extensions>

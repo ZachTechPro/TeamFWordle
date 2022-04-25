@@ -40,9 +40,12 @@ void GameBoardWindow::cbSubmitGuess(Fl_Widget* widget, void* data)
  */
 void GameBoardWindow::submitGuess()
 {
-
+    string userGuess = this-> guessWordInput-> value();
+    if (userGuess.length() == 5)
+    {
+       this-> gbController-> checkGuessAsCorrect(userGuess);
+    }
 }
-
 
 /**< private */
 void GameBoardWindow::performFirstTimeSetup()
