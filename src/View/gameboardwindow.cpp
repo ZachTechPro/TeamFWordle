@@ -99,7 +99,10 @@ void GameBoardWindow::performFirstTimeSetup()
         for (int column = 0; column < 5; column++)
         {
             rowX += 30;
-            this-> wordGrid[gridIndex++] = new Fl_Input(rowX, rowY, 25, 25);
+            Fl_Input* input = this-> wordGrid[gridIndex++];
+            input = new Fl_Input(rowX, rowY, 25, 25);
+            input->maximum_size(1);
+
         }
         rowY += 30;
         rowX = 150;
