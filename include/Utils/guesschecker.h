@@ -9,7 +9,7 @@ class GuessChecker
 {
     public:
         void setWordleAnswer(const string& userGuess);
-        int* checkGuessAsCorrect(const string& userGuess);
+        int* checkGuessAsCorrect(const string& userGuess, const string& chosenWord);
         GuessChecker();
         virtual ~GuessChecker();
 

@@ -1,4 +1,5 @@
 #include "gameboardcontroller.h"
+#include <iostream>
 namespace Controller
 {
 
@@ -16,12 +17,13 @@ GameBoardController::GameBoardController()
  */
 void GameBoardController::loadWordsForPlay()
 {
-    this-> fileIo-> loadWords();
+    this->chosenWord = this-> fileIo-> loadWords();
+    cout<<chosenWord<<endl;
 }
 
 int* GameBoardController::checkGuessAsCorrect(const string& userGuess)
 {
-    return this-> guessChecker-> checkGuessAsCorrect(userGuess);
+    return this-> guessChecker-> checkGuessAsCorrect(userGuess, chosenWord);
 }
 
 /** \brief Destructor

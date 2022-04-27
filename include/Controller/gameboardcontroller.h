@@ -18,6 +18,7 @@ class GameBoardController
 
     private:
         GuessChecker* guessChecker;
+        string chosenWord;
         FileIo* fileIo;
 };
 }
