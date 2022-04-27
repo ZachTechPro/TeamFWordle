@@ -1,5 +1,6 @@
 #ifndef LOGINVIEW_H
 #define LOGINVIEW_H
+#include <Fl/Fl_Input.H>
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Button.H>
 #include "logincontroller.h"
@@ -16,6 +17,7 @@ class LoginView : public Fl_Window
     protected:
 
     private:
+        Fl_Input* userNameInput;
         LoginController* controller;
         Fl_Button* loginButton;
         static void cbLogin(Fl_Widget* widget, void* data);

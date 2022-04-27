@@ -111,6 +111,7 @@ void GameBoardWindow::performFirstTimeSetup()
     this-> submitGuessButton-> callback(cbSubmitGuess, this);
     this-> gbController-> loadWordsForPlay();
     this-> rowNumber = 0;
+
     this-> login();
 }
 
@@ -119,6 +120,7 @@ void GameBoardWindow::login()
     LoginView login(220, 220, "login");
     login.set_modal();
     login.show();
+
     while(login.shown())
     {
         Fl::wait();

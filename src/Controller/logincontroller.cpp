@@ -6,16 +6,16 @@ namespace Controller
 {
 LoginController::LoginController()
 {
-    //ctor
+     this-> fileIo = new FileIo();
 }
 
 bool LoginController::isValidLogin(const string& username)
 {
-    return true;
+    return this-> fileIo-> canFindUser(username);
 }
 
 LoginController::~LoginController()
 {
-    //dtor
+    delete this-> fileIo;
 }
 }

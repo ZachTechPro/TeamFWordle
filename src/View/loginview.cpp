@@ -17,8 +17,9 @@ namespace view
  */
 LoginView::LoginView(int width, int height, const char* title) : Fl_Window(width, height, title)
 {
-   this-> loginButton = new Fl_Button(110, 130, 70, 30, "Login");
+   this-> loginButton = new Fl_Button(90, 130, 70, 30, "Login");
    this-> loginButton-> callback(cbLogin, this);
+   this-> userNameInput = new Fl_Input(90,100,70,30, "username");
 }
 
 /** \brief Destructor
@@ -38,7 +39,7 @@ void LoginView::cbLogin(Fl_Widget* widget, void* data)
 /**< private */
 void LoginView::login()
 {
-    if (this-> controller-> isValidLogin(""))
+    if (this-> controller-> isValidLogin(this-> userNameInput-> value()))
     {
         this-> hide();
     }

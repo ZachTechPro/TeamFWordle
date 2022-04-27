@@ -1,6 +1,8 @@
 #ifndef LOGINCONTROLLER_H
 #define LOGINCONTROLLER_H
 #include <string>
+#include "fileio.h"
+using namespace IO;
 using namespace std;
 namespace Controller
 {
@@ -14,6 +16,7 @@ class LoginController
     protected:
 
     private:
+        FileIo* fileIo;
 };
 }
 #endif // LOGINCONTROLLER_H
