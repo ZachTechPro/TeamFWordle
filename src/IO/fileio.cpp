@@ -21,9 +21,12 @@ FileIo::FileIo()
 /** \brief will load the words from words.txt for the word list.
  *
  */
-void FileIo::loadWords()
+string FileIo::loadWords()
 {
+    srand(time(0));
     fstream file;
+    int counter = 0;
+    vector<string> words;
     file.open("words.txt", ios::in);
     {
         string word;
@@ -31,10 +34,18 @@ void FileIo::loadWords()
         {
             if(word.length() == 5)
             {
+
+                words.push_back(word);
+                counter++;
+                cout<<to_string(counter);
                 cout << word << endl;
             }
         }
     }
+    int random = rand() % words.size();
+    cout<<words[random];
+    cout<<random;
+    return words[random];
 }
 
 /** \brief Destructor

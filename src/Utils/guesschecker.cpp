@@ -20,8 +20,9 @@ GuessChecker::GuessChecker()
  *  correctLetterWrongPos   = flag of 2
  *  wrongLetter             = flag of 1
  */
-int* GuessChecker::checkGuessAsCorrect(const string& userGuess)
+int* GuessChecker::checkGuessAsCorrect(const string& userGuess, const string& chosenWord)
 {
+    this->answer = chosenWord;
     int* resultFlags = new int[5];
     for (std::string::size_type i = 0; i < userGuess.size(); i++)
     {

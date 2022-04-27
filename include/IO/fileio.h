@@ -1,5 +1,8 @@
 #ifndef FILEIO_H
 #define FILEIO_H
+#include <string>
+
+using namespace std;
 
 namespace IO
 {
@@ -7,7 +10,7 @@ namespace IO
 class FileIo
 {
     public:
-        void loadWords();
+        string loadWords();
         FileIo();
         virtual ~FileIo();
 
