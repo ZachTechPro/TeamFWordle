@@ -36,10 +36,11 @@
 1651026102 /home/zmadden1/Desktop/TeamFWordle/include/IO/fileio.h
 	<string>
 
-1650895598 source:/home/zmadden1/Desktop/TeamFWordle/src/Model/player.cpp
+1651029594 source:/home/zmadden1/Desktop/TeamFWordle/src/Model/player.cpp
 	"player.h"
 
-1650895598 /home/zmadden1/Desktop/TeamFWordle/include/Model/player.h
+1651029161 /home/zmadden1/Desktop/TeamFWordle/include/Model/player.h
+	<string>
 
 1651025725 /home/zmadden1/Desktop/TeamFWordle/include/Controller/gameboardcontroller.h
 	"fileio.h"
@@ -133,7 +134,7 @@
 	<string>
 	"fileio.h"
 
-1651027373 source:/home/zmadden1/Desktop/TeamFWordle/src/Controller/logincontroller.cpp
+1651027987 source:/home/zmadden1/Desktop/TeamFWordle/src/Controller/logincontroller.cpp
 	"logincontroller.h"
 	<iostream>
 	<string>
