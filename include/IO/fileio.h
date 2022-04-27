@@ -10,6 +10,7 @@ namespace IO
 class FileIo
 {
     public:
+        bool canFindUser(const string& userName);
         string loadWords();
         FileIo();
         virtual ~FileIo();

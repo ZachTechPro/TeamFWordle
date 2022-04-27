@@ -1,11 +1,12 @@
 # depslib dependency file v1.0
-1650895598 source:/home/zmadden1/Desktop/TeamFWordle/main.cpp
+1651025714 source:/home/zmadden1/Desktop/TeamFWordle/main.cpp
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Box.H>
 	"gameboardwindow.h"
+	"loginview.h"
 
-1650900013 /home/zmadden1/Desktop/TeamFWordle/include/View/gameboardwindow.h
+1651025714 /home/zmadden1/Desktop/TeamFWordle/include/View/gameboardwindow.h
 	<FL/Fl_Button.H>
 	<FL/Fl_Window.H>
 	<Fl/Fl_Input.H>
@@ -13,15 +14,16 @@
 	<vector>
 	"gameboardcontroller.h"
 
-1650898855 source:/home/zmadden1/Desktop/TeamFWordle/src/View/gameboardwindow.cpp
+1651025961 source:/home/zmadden1/Desktop/TeamFWordle/src/View/gameboardwindow.cpp
 	"gameboardwindow.h"
 	<FL/fl_types.h>
 	<Fl/fl_draw.H>
 	<FL/Fl.H>
 	<iostream>
 	<vector>
+	"loginview.h"
 
-1650895598 source:/home/zmadden1/Desktop/TeamFWordle/src/IO/fileio.cpp
+1651027551 source:/home/zmadden1/Desktop/TeamFWordle/src/IO/fileio.cpp
 	"fileio.h"
 	<iostream>
 	<string>
@@ -31,35 +33,39 @@
 	<strings.h>
 	<algorithm>
 
-1650895598 /home/zmadden1/Desktop/TeamFWordle/include/IO/fileio.h
+1651026102 /home/zmadden1/Desktop/TeamFWordle/include/IO/fileio.h
+	<string>
 
-1650895598 source:/home/zmadden1/Desktop/TeamFWordle/src/Model/player.cpp
+1651029594 source:/home/zmadden1/Desktop/TeamFWordle/src/Model/player.cpp
 	"player.h"
 
-1650895598 /home/zmadden1/Desktop/TeamFWordle/include/Model/player.h
+1651029161 /home/zmadden1/Desktop/TeamFWordle/include/Model/player.h
+	<string>
 
-1650895598 /home/zmadden1/Desktop/TeamFWordle/include/Controller/gameboardcontroller.h
+1651025725 /home/zmadden1/Desktop/TeamFWordle/include/Controller/gameboardcontroller.h
 	"fileio.h"
 	"guesschecker.h"
 
-1650898028 source:/home/zmadden1/Desktop/TeamFWordle/src/Controller/gameboardcontroller.cpp
+1651025726 source:/home/zmadden1/Desktop/TeamFWordle/src/Controller/gameboardcontroller.cpp
 	"gameboardcontroller.h"
+	<iostream>
 
-1650895598 source:/home/zmadden1/Desktop/TeamFWordle/src/Utils/guesschecker.cpp
+1651025726 source:/home/zmadden1/Desktop/TeamFWordle/src/Utils/guesschecker.cpp
 	"guesschecker.h"
 	<string>
 	<iostream>
 
-1650895598 /home/zmadden1/Desktop/TeamFWordle/include/Utils/guesschecker.h
+1651025725 /home/zmadden1/Desktop/TeamFWordle/include/Utils/guesschecker.h
 	<string>
 
-1650850311 source:/home/mallred3/Desktop/Classwork/TeamFWordle/main.cpp
+1651028281 source:/home/mallred3/Desktop/Classwork/TeamFWordle/main.cpp
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Box.H>
 	"gameboardwindow.h"
+	"loginview.h"
 
-1650910366 /home/mallred3/Desktop/Classwork/TeamFWordle/include/View/gameboardwindow.h
+1651028281 /home/mallred3/Desktop/Classwork/TeamFWordle/include/View/gameboardwindow.h
 	<FL/Fl_Button.H>
 	<FL/Fl_Window.H>
 	<Fl/Fl_Input.H>
@@ -71,7 +77,7 @@
 	"fileio.h"
 	"guesschecker.h"
 
-1650938613 /home/mallred3/Desktop/Classwork/TeamFWordle/include/IO/fileio.h
+1651028281 /home/mallred3/Desktop/Classwork/TeamFWordle/include/IO/fileio.h
 	<string>
 
 1651019869 /home/mallred3/Desktop/Classwork/TeamFWordle/include/Utils/guesschecker.h
@@ -81,7 +87,7 @@
 	"gameboardcontroller.h"
 	<iostream>
 
-1651019769 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/IO/fileio.cpp
+1651028281 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/IO/fileio.cpp
 	"fileio.h"
 	<iostream>
 	<string>
@@ -101,11 +107,58 @@
 	<string>
 	<iostream>
 
-1650912018 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/View/gameboardwindow.cpp
+1651028281 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/View/gameboardwindow.cpp
 	"gameboardwindow.h"
 	<FL/fl_types.h>
 	<Fl/fl_draw.H>
 	<FL/Fl.H>
 	<iostream>
 	<vector>
+	"loginview.h"
+
+1651026990 source:/home/zmadden1/Desktop/TeamFWordle/src/View/loginview.cpp
+	"loginview.h"
+	<FL/Fl.H>
+	<FL/fl_types.h>
+	<Fl/fl_draw.H>
+	"gameboardwindow.h"
+	<iostream>
+
+1651026536 /home/zmadden1/Desktop/TeamFWordle/include/View/loginview.h
+	<Fl/Fl_Input.H>
+	<FL/Fl_Window.H>
+	<FL/Fl_Button.H>
+	"logincontroller.h"
+
+1651027708 /home/zmadden1/Desktop/TeamFWordle/include/Controller/logincontroller.h
+	<string>
+	"fileio.h"
+
+1651027987 source:/home/zmadden1/Desktop/TeamFWordle/src/Controller/logincontroller.cpp
+	"logincontroller.h"
+	<iostream>
+	<string>
+
+1651028281 /home/mallred3/Desktop/Classwork/TeamFWordle/include/View/loginview.h
+	<Fl/Fl_Input.H>
+	<FL/Fl_Window.H>
+	<FL/Fl_Button.H>
+	"logincontroller.h"
+
+1651028281 /home/mallred3/Desktop/Classwork/TeamFWordle/include/Controller/logincontroller.h
+	<string>
+	"fileio.h"
+
+1651029090 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/Controller/logincontroller.cpp
+	"logincontroller.h"
+	<iostream>
+	<string>
+
+1651029298 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/View/loginview.cpp
+	"loginview.h"
+	<FL/Fl.H>
+	<FL/fl_types.h>
+	<Fl/fl_draw.H>
+	"gameboardwindow.h"
+	<iostream>
 

@@ -15,7 +15,13 @@ namespace IO
  */
 FileIo::FileIo()
 {
-    //ctor
+}
+
+bool FileIo::canFindUser(const string& userName)
+{
+    cout << "in the method" << endl;
+    return true;
+
 }
 
 /** \brief will load the words from words.txt for the word list.

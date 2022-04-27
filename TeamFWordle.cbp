@@ -29,16 +29,21 @@
 			<Add option="`fltk-config --ldstaticflags`" />
 		</Linker>
 		<Unit filename="include/Controller/gameboardcontroller.h" />
+		<Unit filename="include/Controller/logincontroller.h" />
 		<Unit filename="include/IO/fileio.h" />
 		<Unit filename="include/Model/player.h" />
 		<Unit filename="include/Utils/guesschecker.h" />
 		<Unit filename="include/View/gameboardwindow.h" />
+		<Unit filename="include/View/loginview.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Controller/gameboardcontroller.cpp" />
+		<Unit filename="src/Controller/logincontroller.cpp" />
 		<Unit filename="src/IO/fileio.cpp" />
 		<Unit filename="src/Model/player.cpp" />
 		<Unit filename="src/Utils/guesschecker.cpp" />
 		<Unit filename="src/View/gameboardwindow.cpp" />
+		<Unit filename="src/View/loginview.cpp" />
+		<Unit filename="users.txt" />
 		<Unit filename="words.txt" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

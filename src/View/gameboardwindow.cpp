@@ -4,6 +4,7 @@
 #include <FL/Fl.H>
 #include <iostream>
 #include <vector>
+#include "loginview.h"
 
 using namespace std;
 namespace view
@@ -19,6 +20,7 @@ namespace view
  */
 GameBoardWindow::GameBoardWindow(int width, int height, const char* title) : Fl_Window(width, height, title)
 {
+
     this-> performFirstTimeSetup();
 }
 
@@ -57,9 +59,6 @@ void GameBoardWindow::submitGuess()
         }
         this-> rowNumber += 5;
     }
-
-      cout << "userGuess: "<< userGuess << endl;
-      cout << this-> rowNumber << endl;
 }
 
 /**< private */
@@ -111,8 +110,23 @@ void GameBoardWindow::performFirstTimeSetup()
 
     this-> submitGuessButton = new Fl_Button(320, 330, 70, 30, "Submit");
     this-> submitGuessButton-> callback(cbSubmitGuess, this);
+    this-> login();
     this-> gbController-> loadWordsForPlay();
     this-> rowNumber = 0;
+
+
+}
+
+void GameBoardWindow::login()
+{
+    LoginView login(220, 220, "login");
+    login.set_modal();
+    login.show();
+
+    while(login.shown())
+    {
+        Fl::wait();
+    }
 }
 
 /** \brief Destructor
