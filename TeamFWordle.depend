@@ -1,11 +1,12 @@
 # depslib dependency file v1.0
-1650895598 source:/home/zmadden1/Desktop/TeamFWordle/main.cpp
+1651024126 source:/home/zmadden1/Desktop/TeamFWordle/main.cpp
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Box.H>
 	"gameboardwindow.h"
+	"loginview.h"
 
-1650900013 /home/zmadden1/Desktop/TeamFWordle/include/View/gameboardwindow.h
+1651024206 /home/zmadden1/Desktop/TeamFWordle/include/View/gameboardwindow.h
 	<FL/Fl_Button.H>
 	<FL/Fl_Window.H>
 	<Fl/Fl_Input.H>
@@ -13,13 +14,14 @@
 	<vector>
 	"gameboardcontroller.h"
 
-1650898855 source:/home/zmadden1/Desktop/TeamFWordle/src/View/gameboardwindow.cpp
+1651024463 source:/home/zmadden1/Desktop/TeamFWordle/src/View/gameboardwindow.cpp
 	"gameboardwindow.h"
 	<FL/fl_types.h>
 	<Fl/fl_draw.H>
 	<FL/Fl.H>
 	<iostream>
 	<vector>
+	"loginview.h"
 
 1650895598 source:/home/zmadden1/Desktop/TeamFWordle/src/IO/fileio.cpp
 	"fileio.h"
@@ -106,4 +108,25 @@
 	<FL/Fl.H>
 	<iostream>
 	<vector>
+
+1651025245 source:/home/zmadden1/Desktop/TeamFWordle/src/View/loginview.cpp
+	"loginview.h"
+	<FL/Fl.H>
+	<FL/fl_types.h>
+	<Fl/fl_draw.H>
+	"gameboardwindow.h"
+	<iostream>
+
+1651025450 /home/zmadden1/Desktop/TeamFWordle/include/View/loginview.h
+	<FL/Fl_Window.H>
+	<FL/Fl_Button.H>
+	"logincontroller.h"
+
+1651025494 /home/zmadden1/Desktop/TeamFWordle/include/Controller/logincontroller.h
+	<string>
+
+1651025499 source:/home/zmadden1/Desktop/TeamFWordle/src/Controller/logincontroller.cpp
+	"logincontroller.h"
+	<iostream>
+	<string>
 

@@ -25,6 +25,7 @@ class GameBoardWindow : public Fl_Window
         void highLightLetterCell(Fl_Input* inputCell, int positionFlag);
 
     public:
+        void login();
         static void cbSubmitGuess(Fl_Widget* widget, void* data);
         void submitGuess();
         GameBoardWindow(int width, int height, const char* title);
