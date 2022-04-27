@@ -11,6 +11,7 @@ LoginController::LoginController()
 
 bool LoginController::isValidLogin(const string& username)
 {
+    cout<<"reached";
     return this-> fileIo-> canFindUser(username);
 }
 

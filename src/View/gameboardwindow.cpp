@@ -20,6 +20,7 @@ namespace view
  */
 GameBoardWindow::GameBoardWindow(int width, int height, const char* title) : Fl_Window(width, height, title)
 {
+
     this-> performFirstTimeSetup();
 }
 
@@ -109,10 +110,11 @@ void GameBoardWindow::performFirstTimeSetup()
 
     this-> submitGuessButton = new Fl_Button(320, 330, 70, 30, "Submit");
     this-> submitGuessButton-> callback(cbSubmitGuess, this);
+    this-> login();
     this-> gbController-> loadWordsForPlay();
     this-> rowNumber = 0;
 
-    this-> login();
+
 }
 
 void GameBoardWindow::login()

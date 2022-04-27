@@ -57,13 +57,14 @@
 1651025725 /home/zmadden1/Desktop/TeamFWordle/include/Utils/guesschecker.h
 	<string>
 
-1650850311 source:/home/mallred3/Desktop/Classwork/TeamFWordle/main.cpp
+1651028281 source:/home/mallred3/Desktop/Classwork/TeamFWordle/main.cpp
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Box.H>
 	"gameboardwindow.h"
+	"loginview.h"
 
-1650910366 /home/mallred3/Desktop/Classwork/TeamFWordle/include/View/gameboardwindow.h
+1651028281 /home/mallred3/Desktop/Classwork/TeamFWordle/include/View/gameboardwindow.h
 	<FL/Fl_Button.H>
 	<FL/Fl_Window.H>
 	<Fl/Fl_Input.H>
@@ -75,7 +76,7 @@
 	"fileio.h"
 	"guesschecker.h"
 
-1650938613 /home/mallred3/Desktop/Classwork/TeamFWordle/include/IO/fileio.h
+1651028281 /home/mallred3/Desktop/Classwork/TeamFWordle/include/IO/fileio.h
 	<string>
 
 1651019869 /home/mallred3/Desktop/Classwork/TeamFWordle/include/Utils/guesschecker.h
@@ -85,7 +86,7 @@
 	"gameboardcontroller.h"
 	<iostream>
 
-1651019769 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/IO/fileio.cpp
+1651028281 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/IO/fileio.cpp
 	"fileio.h"
 	<iostream>
 	<string>
@@ -105,13 +106,14 @@
 	<string>
 	<iostream>
 
-1650912018 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/View/gameboardwindow.cpp
+1651028281 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/View/gameboardwindow.cpp
 	"gameboardwindow.h"
 	<FL/fl_types.h>
 	<Fl/fl_draw.H>
 	<FL/Fl.H>
 	<iostream>
 	<vector>
+	"loginview.h"
 
 1651026990 source:/home/zmadden1/Desktop/TeamFWordle/src/View/loginview.cpp
 	"loginview.h"
@@ -135,4 +137,27 @@
 	"logincontroller.h"
 	<iostream>
 	<string>
+
+1651028281 /home/mallred3/Desktop/Classwork/TeamFWordle/include/View/loginview.h
+	<Fl/Fl_Input.H>
+	<FL/Fl_Window.H>
+	<FL/Fl_Button.H>
+	"logincontroller.h"
+
+1651028281 /home/mallred3/Desktop/Classwork/TeamFWordle/include/Controller/logincontroller.h
+	<string>
+	"fileio.h"
+
+1651029090 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/Controller/logincontroller.cpp
+	"logincontroller.h"
+	<iostream>
+	<string>
+
+1651029298 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/View/loginview.cpp
+	"loginview.h"
+	<FL/Fl.H>
+	<FL/fl_types.h>
+	<Fl/fl_draw.H>
+	"gameboardwindow.h"
+	<iostream>
 
