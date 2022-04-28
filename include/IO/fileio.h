@@ -18,6 +18,7 @@ class FileIo
     protected:
 
     private:
+        string readFileIntoString(const string& path);
 };
 }
 #endif // FILEIO_H

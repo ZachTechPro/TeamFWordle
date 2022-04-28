@@ -127,6 +127,7 @@ void GameBoardWindow::login()
     {
         Fl::wait();
     }
+
 }
 
 /** \brief Destructor
