@@ -18,6 +18,18 @@ class Player
         int getTotalGamesPlayed();
         int getCurrentWinStreak();
         int getMaxWinStreak();
+        int getOneTryWins();
+        int getTwoTryWins();
+        int getThreeTryWins();
+        int getFourTryWins();
+        int getFiveTryWins();
+        int getSixTryWins();
+        void setOneTryWins(int newWinNumber);
+        void setTwoTryWins(int newWinNumber);
+        void setThreeTryWins(int newWinNumber);
+        void setFourTryWins(int newWinNumber);
+        void setFiveTryWins(int newWinNumber);
+        void setSixTryWins(int newWinNumber);
 
         Player();
         virtual ~Player();
@@ -30,6 +42,12 @@ class Player
         int totalGamesPlayed;
         int currentWinStreak;
         int maxWinStreak;
+        int oneTry;
+        int twoTry;
+        int threeTry;
+        int fourTry;
+        int fiveTry;
+        int sixTry;
 };
 }
 #endif // PLAYER_H

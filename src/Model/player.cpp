@@ -125,6 +125,88 @@ int Player::getMaxWinStreak()
 {
     return this-> maxWinStreak;
 }
+/** \brief gets the one try wins
+ *
+ * \return int -- the one try wins
+ *
+ */
+int Player::getOneTryWins()
+{
+    return this-> oneTry;
+}
+/** \brief gets the two try wins
+ *
+ * \return int -- the two try wins
+ *
+ */
+int Player::getTwoTryWins()
+{
+    return this-> twoTry;
+}
+/** \brief gets the three try wins
+ *
+ * \return int -- the three try wins
+ *
+ */
+int Player::getThreeTryWins()
+{
+    return this-> threeTry;
+}
+/** \brief gets the four try wins
+ *
+ * \return int -- the four try wins
+ *
+ */
+int Player::getFourTryWins()
+{
+    return this-> fourTry;
+}
+/** \brief gets the five try wins
+ *
+ * \return int -- the five try wins
+ *
+ */
+int Player::getFiveTryWins()
+{
+    return this-> fiveTry;
+}
+/** \brief gets the six try wins
+ *
+ * \return int -- the six try wins
+ *
+ */
+int Player::getSixTryWins()
+{
+    return this-> sixTry;
+}
+
+void Player::setOneTryWins(int newWinNumber)
+{
+    this->oneTry = newWinNumber;
+}
+void Player::setTwoTryWins(int newWinNumber)
+{
+    this->twoTry = newWinNumber;
+}
+void Player::setThreeTryWins(int newWinNumber)
+{
+    this->threeTry = newWinNumber;
+}
+void Player::setFourTryWins(int newWinNumber)
+{
+    this->fourTry = newWinNumber;
+}
+void Player::setFiveTryWins(int newWinNumber)
+{
+    this->fiveTry = newWinNumber;
+}
+void Player::setSixTryWins(int newWinNumber)
+{
+    this->sixTry = newWinNumber;
+}
+
+
+
 
 
 /** \brief destructor

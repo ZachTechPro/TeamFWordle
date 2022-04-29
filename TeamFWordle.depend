@@ -87,7 +87,7 @@
 	"gameboardcontroller.h"
 	<iostream>
 
-1651030676 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/IO/fileio.cpp
+1651119992 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/IO/fileio.cpp
 	"fileio.h"
 	<iostream>
 	<string>
@@ -96,11 +96,13 @@
 	<vector>
 	<strings.h>
 	<algorithm>
+	"player.h"
+	<map>
 
 1651030676 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/Model/player.cpp
 	"player.h"
 
-1651030676 /home/mallred3/Desktop/Classwork/TeamFWordle/include/Model/player.h
+1651266051 /home/mallred3/Desktop/Classwork/TeamFWordle/include/Model/player.h
 	<string>
 
 1651019849 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/Utils/guesschecker.cpp
