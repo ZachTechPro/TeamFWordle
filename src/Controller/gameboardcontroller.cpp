@@ -18,12 +18,26 @@ GameBoardController::GameBoardController()
 void GameBoardController::loadWordsForPlay()
 {
     this->chosenWord = this-> fileIo-> loadWords();
-    cout<<chosenWord<<endl;
+    cout <<chosenWord << endl;
 }
 
 int* GameBoardController::checkGuessAsCorrect(const string& userGuess)
 {
     return this-> guessChecker-> checkGuessAsCorrect(userGuess, chosenWord);
+}
+
+bool GameBoardController::checkForCompletedSolution(int* solutionFlags, int numCells)
+{
+    int correctLetterCorrectSpotFlag = 3;
+    int hasGuessedAll = true;
+    for (int flagIndex = 0; flagIndex < numCells; flagIndex++)
+    {
+        if (solutionFlags[flagIndex] != correctLetterCorrectSpotFlag)
+        {
+            hasGuessedAll = false;
+        }
+    }
+    return hasGuessedAll;
 }
 
 /** \brief Destructor

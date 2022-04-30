@@ -5,7 +5,8 @@
 #include <iostream>
 #include <vector>
 #include "loginview.h"
-
+#include "player.h"
+using namespace model;
 using namespace std;
 namespace view
 {
@@ -20,7 +21,6 @@ namespace view
  */
 GameBoardWindow::GameBoardWindow(int width, int height, const char* title) : Fl_Window(width, height, title)
 {
-
     this-> performFirstTimeSetup();
 }
 
@@ -43,23 +43,35 @@ void GameBoardWindow::cbSubmitGuess(Fl_Widget* widget, void* data)
 void GameBoardWindow::submitGuess()
 {
     string userGuess = "";
-
-    for (int i = 0; i <= 4; i++)
+    int numCells = 4;
+    for (int i = 0; i <= numCells; i++)
     {
         userGuess += this-> wordGrid[this-> rowNumber + i]-> value();
     }
 
-    if (userGuess.length() == 5)
+    if (userGuess.length() == numCells + 1)
     {
         int* solution = this-> gbController-> checkGuessAsCorrect(userGuess);
+        this-> checkForCompletedSolution(solution, numCells);
+        if (this-> hasGuessedCompletedWord)
+        {
+            this-> showWin();
+        }
 
-        for (int i = 0; i <= 4; i++)
+        for (int i = 0; i <= numCells; i++)
         {
             this-> highLightLetterCell(this-> wordGrid[this-> rowNumber + i], solution[i]);
         }
         this-> rowNumber += 5;
     }
 }
+
+
+void GameBoardWindow::checkForCompletedSolution(int* solutionFlags, int numCells)
+{
+     this-> hasGuessedCompletedWord = this-> gbController-> checkForCompletedSolution(solutionFlags, numCells);
+}
+
 
 /**< private */
 void GameBoardWindow::highLightLetterCell(Fl_Input* inputCell, int positionFlag)
@@ -84,12 +96,19 @@ void GameBoardWindow::updateColorAndDisable(Fl_Input* inputCell)
     inputCell-> deactivate();
 }
 
+void GameBoardWindow::showWin()
+{
+    for (int i = 0; i < 30; i++)
+    {
+        this-> wordGrid[i]-> deactivate();
+    }
+}
 
 /**< private */
 void GameBoardWindow::performFirstTimeSetup()
 {
     this-> gbController = new GameBoardController();
-
+    this-> hasGuessedCompletedWord = false;
     int rowX = 150;
     int rowY = rowX;
     int gridIndex = 0;
@@ -107,19 +126,17 @@ void GameBoardWindow::performFirstTimeSetup()
         rowY += 30;
         rowX = 150;
     }
-
+    this-> usernameLabel = new Fl_Output(50, 50, 100, 50);
     this-> submitGuessButton = new Fl_Button(320, 330, 70, 30, "Submit");
     this-> submitGuessButton-> callback(cbSubmitGuess, this);
     this-> login();
     this-> gbController-> loadWordsForPlay();
     this-> rowNumber = 0;
-
-
 }
 
 void GameBoardWindow::login()
 {
-    LoginView login(220, 220, "login");
+    LoginView login;
     login.set_modal();
     login.show();
 
@@ -127,7 +144,10 @@ void GameBoardWindow::login()
     {
         Fl::wait();
     }
-
+   if (login.getWindowResult() == OKCancelWindow::WindowResult::OK)
+    {
+       this-> player = login.getPlayer();
+    }
 }
 
 /** \brief Destructor

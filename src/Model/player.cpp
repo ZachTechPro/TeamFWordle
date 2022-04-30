@@ -1,5 +1,6 @@
 #include "player.h"
-
+#include <iostream>
+using namespace std;
 namespace model
 {
 
@@ -194,26 +195,68 @@ int Player::getSixTryWins()
     return this-> sixTry;
 }
 
+/** \brief sets the one try wins
+ *
+ * \param newWinNumber int -- the one try wins
+ * \return void
+ *
+ */
 void Player::setOneTryWins(int newWinNumber)
 {
     this->oneTry = newWinNumber;
 }
+
+/** \brief sets the two try wins
+ *
+ * \param newWinNumber int -- the two try wins
+ * \return void
+ *
+ */
 void Player::setTwoTryWins(int newWinNumber)
 {
     this->twoTry = newWinNumber;
 }
+
+/** \brief sets the three try wins
+ *
+ * \param newWinNumber int -- the three try wins
+ * \return void
+ *
+ */
 void Player::setThreeTryWins(int newWinNumber)
 {
     this->threeTry = newWinNumber;
 }
+
+
+/** \brief sets the four try wins
+ *
+ * \param newWinNumber int -- the four try wins
+ * \return void
+ *
+ */
 void Player::setFourTryWins(int newWinNumber)
 {
     this->fourTry = newWinNumber;
 }
+
+/** \brief sets the five try wins
+ *
+ * \param newWinNumber int -- the five try wins
+ * \return void
+ *
+ */
 void Player::setFiveTryWins(int newWinNumber)
 {
     this->fiveTry = newWinNumber;
 }
+
+/** \brief sets the six try wins
+ *
+ * \param newWinNumber int -- the six try wins
+ * \return void
+ *
+ */
 void Player::setSixTryWins(int newWinNumber)
 {
     this->sixTry = newWinNumber;

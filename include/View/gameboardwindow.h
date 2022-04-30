@@ -16,6 +16,11 @@ class GameBoardWindow : public Fl_Window
 {
 
     private:
+        void checkForCompletedSolution(int* solutionFlags, int numCells);
+        void showWin();
+        bool hasGuessedCompletedWord;
+        Fl_Output* usernameLabel;
+        Player* player;
         Fl_Button* submitGuessButton;
         Fl_Input* wordGrid[30];
         void updateColorAndDisable(Fl_Input* inputCell);

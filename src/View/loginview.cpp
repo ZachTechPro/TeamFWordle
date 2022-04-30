@@ -4,6 +4,7 @@
 #include <Fl/fl_draw.H>
 #include "gameboardwindow.h"
 #include <iostream>
+#include "okcancelwindow.h"
 using namespace std;
 namespace view
 {
@@ -15,35 +16,38 @@ namespace view
  * \param title const char* -- the title of the window
  *
  */
-LoginView::LoginView(int width, int height, const char* title) : Fl_Window(width, height, title)
+LoginView::LoginView() : OKCancelWindow(330, 215, "Login")
 {
-   this-> loginButton = new Fl_Button(90, 130, 70, 30, "Login");
-   this-> loginButton-> callback(cbLogin, this);
-   this-> userNameInput = new Fl_Input(90,100,70,30, "username");
+    this-> controller-> loadAllPlayers();
+    this-> player = 0;
+    begin();
+    Fl_Output* t = new Fl_Output(270, 30, 0, 0, "Enter your username\n If you do not have one, go ahead and make one here.");
+    this-> userNameInput = new Fl_Input(90,100,70,30, "username");
+    this-> setOKLocation(90, 130);
+    this-> setCancelLocation(-100, -100);
+    end();
+}
+
+void LoginView::cancelHandler()
+{
+    cout << "cancel" << endl;
+}
+
+void LoginView::okHandler()
+{
+    this-> controller-> loadOrCreatePlayer(this-> userNameInput-> value());
+    this-> hide();
+}
+
+Player* LoginView::getPlayer()
+{
+    return this-> controller-> getCurrentPlayer();
 }
 
 /** \brief Destructor
  */
 LoginView::~LoginView()
 {
-    delete this-> loginButton;
-}
-
-/**< private */
-void LoginView::cbLogin(Fl_Widget* widget, void* data)
-{
-    LoginView* window = (LoginView*) data;
-    window-> login();
-}
-
-/**< private */
-void LoginView::login()
-{
-    if (this-> controller-> isValidLogin(this-> userNameInput-> value()))
-    {
-        this-> hide();
-    }
-
 }
 
 }

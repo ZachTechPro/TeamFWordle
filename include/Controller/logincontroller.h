@@ -2,6 +2,8 @@
 #define LOGINCONTROLLER_H
 #include <string>
 #include "fileio.h"
+#include <vector>
+using namespace model;
 using namespace IO;
 using namespace std;
 namespace Controller
@@ -9,13 +11,19 @@ namespace Controller
 class LoginController
 {
     public:
-        bool isValidLogin(const string& username);
+        Player* getCurrentPlayer();
+        vector<Player*> getActivePlayers();
+        void loadOrCreatePlayer(const string& username);
+        void loadAllPlayers();
         LoginController();
         virtual ~LoginController();
 
     protected:
 
     private:
+        Player* currentPlayer;
+        vector<Player*> activePlayers;
+
         FileIo* fileIo;
 };
 }

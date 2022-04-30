@@ -21,66 +21,79 @@ FileIo::FileIo()
 {
 }
 
-
-bool FileIo::canFindUser(const string& userName)
+vector<Player*> FileIo::getPlayersList()
 {
-    string filename("users.txt");
-    string file_contents;
-    std::map<string, std::vector<string>> csv_contents;
-    char delimiter = ',';
-
-    file_contents = readFileIntoString(filename);
-
-    istringstream sstream(file_contents);
-    std::vector<string> items;
-    string record;
-
-    while (std::getline(sstream, record)) {
-        istringstream line(record);
-        while (std::getline(line, record, delimiter)) {
-            items.push_back(record);
+    fstream userFile;
+    userFile.open("users.txt", ios::in);
+    vector<Player*> players;
+    if (userFile.is_open())
+    {
+        vector<string> playerLineResult;
+        string lineData;
+        bool hasFoundUser = false;
+        while(getline(userFile, lineData))
+        {
+            playerLineResult = this-> splitLineData(lineData);
+            players.push_back(this-> buildPlayer(playerLineResult));
         }
 
-        csv_contents[items[0]] = items;
-        items.clear();
-
     }
-    string name = csv_contents["Max"][0];
-    cout<<name;
-    cout << "in the method" << endl;
-    vector<Player*> players;
-
-    auto iter = csv_contents.begin();
-    while (iter != csv_contents.end()) {
-        cout << "[" << iter->first << ","
-                    << iter->second[0] << "]\n";
-        char *p;
-        int distribution[6];
-        distribution[0] = stoi(iter->second[5]);
-        distribution[1] = stoi(iter->second[6]);
-        distribution[2] = stoi(iter->second[7]);
-        distribution[3] = stoi(iter->second[8]);
-        distribution[4] = stoi(iter->second[9]);
-        distribution[5] = stoi(iter->second[10]);
-        players.push_back(new Player(iter->second[0],stoi(iter->second[1]), atof(iter->second[2].c_str()), stoi(iter->second[3]), stoi(iter->second[4]), distribution));
-        ++iter;
-    }
-    cout<<players[0]->getUserName();
-    cout << endl;
-    return 0;
-    return true;
-
+    return players;
 }
-string FileIo::readFileIntoString(const string& path) {
-    auto ss = ostringstream{};
-    ifstream input_file(path);
-    if (!input_file.is_open()) {
-        cerr << "Could not open the file - '"
-             << path << "'" << endl;
-        exit(EXIT_FAILURE);
+
+/**< private */
+Player* FileIo::buildPlayer(vector<string> currentLineResults)
+{
+    int playerUserNameIndex = 0;
+    int winPercentageIndex = 1;
+    int totalGamesPlayerIndex = 2;
+    int currentWinStreakIndex = 3;
+    int maxWinStreakIndex = 4;
+    int numOneTryWinsIndex = 5;
+    int numTwoTryWinsIndex = 6;
+    int numThreeTryWinsIndex = 7;
+    int numFourTryWinsIndex = 8;
+    int numFiveTryWinsIndex = 9;
+    int numSixTryWinsIndex = 10;
+
+    string userName = currentLineResults[playerUserNameIndex];
+    double winPercentage = stoi(currentLineResults[winPercentageIndex]);
+    int totalGamesPlayed = stoi(currentLineResults[totalGamesPlayerIndex]);
+    int currentWinStreak = stoi(currentLineResults[currentWinStreakIndex]);
+    int maxWinStreak = stoi(currentLineResults[maxWinStreakIndex]);
+
+    int winDistribution [6];
+    winDistribution[0] = stoi(currentLineResults[numOneTryWinsIndex]);
+    winDistribution[1] = stoi(currentLineResults[numTwoTryWinsIndex]);
+    winDistribution[2] = stoi(currentLineResults[numThreeTryWinsIndex]);
+    winDistribution[3] = stoi(currentLineResults[numFourTryWinsIndex]);
+    winDistribution[4] = stoi(currentLineResults[numFiveTryWinsIndex]);
+    winDistribution[5] = stoi(currentLineResults[numSixTryWinsIndex]);
+
+    Player* player = new Player(userName,
+                                winPercentage,
+                                totalGamesPlayed,
+                                currentWinStreak,
+                                maxWinStreak,
+                                winDistribution);
+    return player;
+}
+
+
+vector<string> FileIo::splitLineData(const string& lineData)
+{
+    stringstream sstream(lineData);
+    vector<string> results;
+
+    while(sstream.good())
+    {
+        string substring;
+        getline(sstream, substring, ',');
+        results.push_back(substring);
     }
-    ss << input_file.rdbuf();
-    return ss.str();
+
+    return results;
+
 }
 
 /** \brief will load the words from words.txt for the word list.
@@ -102,8 +115,6 @@ string FileIo::loadWords()
 
                 words.push_back(word);
                 counter++;
-                //cout<<to_string(counter);
-                //cout << word << endl;
             }
         }
     }
