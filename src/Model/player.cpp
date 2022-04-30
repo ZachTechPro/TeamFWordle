@@ -14,6 +14,20 @@ Player::Player()
     this-> currentWinStreak = 0;
     this-> maxWinStreak = 0;
 }
+Player::Player(const string& name, int totalGamesPlayed, double winPercentage, int currentWinStreak, int maxWinStreak, int winDistribution[6])
+{
+    this->userName = name;
+    this->totalGamesPlayed = totalGamesPlayed;
+    this->winPercentage = winPercentage;
+    this->currentWinStreak = currentWinStreak;
+    this->maxWinStreak = maxWinStreak;
+    this->oneTry = winDistribution[0];
+    this->twoTry = winDistribution[1];
+    this->threeTry = winDistribution[2];
+    this->fourTry = winDistribution[3];
+    this->fiveTry = winDistribution[4];
+    this->sixTry = winDistribution[5];
+}
 
 
 /** \brief set the user's name

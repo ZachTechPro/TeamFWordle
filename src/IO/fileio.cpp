@@ -48,6 +48,26 @@ bool FileIo::canFindUser(const string& userName)
     string name = csv_contents["Max"][0];
     cout<<name;
     cout << "in the method" << endl;
+    vector<Player*> players;
+
+    auto iter = csv_contents.begin();
+    while (iter != csv_contents.end()) {
+        cout << "[" << iter->first << ","
+                    << iter->second[0] << "]\n";
+        char *p;
+        int distribution[6];
+        distribution[0] = stoi(iter->second[5]);
+        distribution[1] = stoi(iter->second[6]);
+        distribution[2] = stoi(iter->second[7]);
+        distribution[3] = stoi(iter->second[8]);
+        distribution[4] = stoi(iter->second[9]);
+        distribution[5] = stoi(iter->second[10]);
+        players.push_back(new Player(iter->second[0],stoi(iter->second[1]), atof(iter->second[2].c_str()), stoi(iter->second[3]), stoi(iter->second[4]), distribution));
+        ++iter;
+    }
+    cout<<players[0]->getUserName();
+    cout << endl;
+    return 0;
     return true;
 
 }

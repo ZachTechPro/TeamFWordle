@@ -30,7 +30,7 @@ class Player
         void setFourTryWins(int newWinNumber);
         void setFiveTryWins(int newWinNumber);
         void setSixTryWins(int newWinNumber);
-
+        Player(const string& name, int totalGamesPlayed, double winPercentage, int currentWinStreak, int maxWinStreak, int winDistribution[6]);
         Player();
         virtual ~Player();
 

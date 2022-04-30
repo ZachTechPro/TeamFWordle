@@ -87,7 +87,7 @@
 	"gameboardcontroller.h"
 	<iostream>
 
-1651119992 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/IO/fileio.cpp
+1651290847 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/IO/fileio.cpp
 	"fileio.h"
 	<iostream>
 	<string>
@@ -99,10 +99,10 @@
 	"player.h"
 	<map>
 
-1651266309 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/Model/player.cpp
+1651292042 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/Model/player.cpp
 	"player.h"
 
-1651266051 /home/mallred3/Desktop/Classwork/TeamFWordle/include/Model/player.h
+1651292070 /home/mallred3/Desktop/Classwork/TeamFWordle/include/Model/player.h
 	<string>
 
 1651019849 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/Utils/guesschecker.cpp
@@ -164,4 +164,9 @@
 	<Fl/fl_draw.H>
 	"gameboardwindow.h"
 	<iostream>
+
+1651267001 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/View/statisticsview.cpp
+	"statisticsview.h"
+
+1651267001 /home/mallred3/Desktop/Classwork/TeamFWordle/include/View/statisticsview.h
 
