@@ -6,6 +6,7 @@
 #include <vector>
 #include "loginview.h"
 #include "player.h"
+#include "gameoverwindow.h"
 using namespace model;
 using namespace std;
 namespace view
@@ -53,25 +54,25 @@ void GameBoardWindow::submitGuess()
     {
         int* solution = this-> gbController-> checkGuessAsCorrect(userGuess);
         this-> checkForCompletedSolution(solution, numCells);
-        if (this-> hasGuessedCompletedWord)
-        {
-            this-> showWin();
-        }
 
         for (int i = 0; i <= numCells; i++)
         {
             this-> highLightLetterCell(this-> wordGrid[this-> rowNumber + i], solution[i]);
         }
+
+        if (this-> hasGuessedCompletedWord)
+        {
+            this-> showWin();
+        }
+
         this-> rowNumber += 5;
     }
 }
 
-
 void GameBoardWindow::checkForCompletedSolution(int* solutionFlags, int numCells)
 {
-     this-> hasGuessedCompletedWord = this-> gbController-> checkForCompletedSolution(solutionFlags, numCells);
+    this-> hasGuessedCompletedWord = this-> gbController-> checkForCompletedSolution(solutionFlags, numCells);
 }
-
 
 /**< private */
 void GameBoardWindow::highLightLetterCell(Fl_Input* inputCell, int positionFlag)
@@ -102,6 +103,20 @@ void GameBoardWindow::showWin()
     {
         this-> wordGrid[i]-> deactivate();
     }
+
+    GameOverWindow gameOverWindow;
+    gameOverWindow.setPlayer(this-> player);
+    gameOverWindow.set_modal();
+    gameOverWindow.show();
+
+    while(gameOverWindow.shown())
+    {
+        Fl::wait();
+    }
+    if (gameOverWindow.getWindowResult() == OKCancelWindow::WindowResult::OK)
+    {
+
+    }
 }
 
 /**< private */
@@ -109,7 +124,7 @@ void GameBoardWindow::performFirstTimeSetup()
 {
     this-> gbController = new GameBoardController();
     this-> hasGuessedCompletedWord = false;
-    this-> buildWordleGried();
+    this-> buildWordleGrid();
     this-> buildKeyboard();
     this-> usernameLabel = new Fl_Box(50, 50, 100, 50, "welcome");
     this-> usernameLabel-> box(Fl_Boxtype::FL_NO_BOX);
@@ -119,7 +134,6 @@ void GameBoardWindow::performFirstTimeSetup()
     this-> login();
     this-> gbController-> loadWordsForPlay();
     this-> rowNumber = 0;
-
 
     string name = "Welcome, " + this-> player-> getUserName() + "!";
     char* nameLabel = strcpy(new char[name.length() + 1], name.c_str());
@@ -145,9 +159,12 @@ void GameBoardWindow::buildKeyboard()
             cout<<letter;
             const char* converted = new char(letter);
             Fl_Button* button;
-            if(AsciiValue == finalAscii){
+            if(AsciiValue == finalAscii)
+            {
                 button = new Fl_Button(rowXKeys, rowYKeys, 35, 35, "del");
-            }else{
+            }
+            else
+            {
                 button = new Fl_Button(rowXKeys, rowYKeys, 35, 35, converted);
             }
 
@@ -161,9 +178,9 @@ void GameBoardWindow::buildKeyboard()
     }
 }
 
-void GameBoardWindow::buildWordleGried()
+void GameBoardWindow::buildWordleGrid()
 {
-int rowX = 150;
+    int rowX = 150;
     int rowY = rowX - 120;
     int gridIndex = 0;
     for (int rows = 0; rows < 6; rows++)
@@ -191,7 +208,7 @@ void GameBoardWindow::login()
     {
         Fl::wait();
     }
-   if (login.getWindowResult() == OKCancelWindow::WindowResult::OK)
+    if (login.getWindowResult() == OKCancelWindow::WindowResult::OK)
     {
         this-> player = login.getPlayer();
     }
@@ -207,8 +224,6 @@ GameBoardWindow::~GameBoardWindow()
     delete this-> submitGuessButton;
     delete this-> player;
     delete this-> usernameLabel;
-   // delete[] this-> wordGrid;
-   // delete[] this-> keyboardGrid;
 }
 
 }

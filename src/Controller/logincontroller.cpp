@@ -24,7 +24,7 @@ void LoginController::loadOrCreatePlayer(const string& username)
 
     this-> currentPlayer = new Player();
     this-> currentPlayer-> setUserName(username);
-
+    this-> activePlayers.push_back(this-> currentPlayer);
 }
 
 vector<Player*> LoginController::getActivePlayers()

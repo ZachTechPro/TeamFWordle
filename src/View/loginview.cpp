@@ -21,7 +21,8 @@ LoginView::LoginView() : OKCancelWindow(330, 215, "Login")
     this-> controller-> loadAllPlayers();
     this-> player = 0;
     begin();
-    Fl_Output* t = new Fl_Output(270, 30, 0, 0, "Enter your username\n If you do not have one, go ahead and make one here.");
+    Fl_Box* greetingLabel = new Fl_Box(110,50,100,50,"Welcome. Please sign in with your username.");
+    greetingLabel-> box(Fl_Boxtype::FL_NO_BOX);
     this-> userNameInput = new Fl_Input(90,100,70,30, "username");
     this-> setOKLocation(90, 130);
     this-> setCancelLocation(-100, -100);
@@ -41,15 +42,9 @@ void LoginView::okHandler()
 
 Player* LoginView::getPlayer()
 {
-    cout<<this->controller->getCurrentPlayer()->getUserName();
-
     return this->controller->getCurrentPlayer();
 
 }
-
-
-
-
 
 /** \brief Destructor
  */

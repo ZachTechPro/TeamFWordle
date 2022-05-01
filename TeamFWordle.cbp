@@ -34,6 +34,7 @@
 		<Unit filename="include/Model/player.h" />
 		<Unit filename="include/Utils/guesschecker.h" />
 		<Unit filename="include/View/gameboardwindow.h" />
+		<Unit filename="include/View/gameoverwindow.h" />
 		<Unit filename="include/View/loginview.h" />
 		<Unit filename="include/View/okcancelwindow.h" />
 		<Unit filename="main.cpp" />
@@ -43,6 +44,7 @@
 		<Unit filename="src/Model/player.cpp" />
 		<Unit filename="src/Utils/guesschecker.cpp" />
 		<Unit filename="src/View/gameboardwindow.cpp" />
+		<Unit filename="src/View/gameoverwindow.cpp" />
 		<Unit filename="src/View/loginview.cpp" />
 		<Unit filename="src/View/okcancelwindow.cpp" />
 		<Unit filename="users.txt" />
