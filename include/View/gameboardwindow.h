@@ -18,7 +18,7 @@ class GameBoardWindow : public Fl_Window
 
     private:
         void checkForCompletedSolution(int* solutionFlags, int numCells);
-        void showWin();
+        void showStatsPage();
         bool hasGuessedCompletedWord;
         Fl_Box* usernameLabel;
         Player* player;

@@ -43,6 +43,7 @@ void GameBoardWindow::cbHandleLetter(Fl_Widget* widget, void* data)
     GameBoardWindow* window = (GameBoardWindow*) data;
     window-> handleLetter(widget->label());
 }
+
 void GameBoardWindow::handleLetter(const string& letter){
         if(letter == "del")
         {
@@ -54,6 +55,10 @@ void GameBoardWindow::handleLetter(const string& letter){
                 {
                     last = this->wordGrid[i];
                     continue;
+                }
+                if (i == 0)
+                {
+                    return;
                 }
                 last->value("");
                 return;
@@ -82,6 +87,12 @@ void GameBoardWindow::submitGuess()
 {
     string userGuess = "";
     int numCells = 4;
+
+    if (this-> rowNumber >= 25)
+    {
+        this-> showStatsPage();
+    }
+
     for (int i = 0; i <= numCells; i++)
     {
         userGuess += this-> wordGrid[this-> rowNumber + i]-> value();
@@ -99,7 +110,7 @@ void GameBoardWindow::submitGuess()
 
         if (this-> hasGuessedCompletedWord)
         {
-            this-> showWin();
+            this-> showStatsPage();
         }
 
         this-> rowNumber += 5;
@@ -134,7 +145,7 @@ void GameBoardWindow::updateColorAndDisable(Fl_Input* inputCell)
     inputCell-> deactivate();
 }
 
-void GameBoardWindow::showWin()
+void GameBoardWindow::showStatsPage()
 {
     for (int i = 0; i < 30; i++)
     {
