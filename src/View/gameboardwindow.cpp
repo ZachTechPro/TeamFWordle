@@ -109,23 +109,26 @@ void GameBoardWindow::performFirstTimeSetup()
 {
     this-> gbController = new GameBoardController();
     this-> hasGuessedCompletedWord = false;
-    int rowX = 150;
-    int rowY = rowX - 120;
-    int gridIndex = 0;
-    for (int rows = 0; rows < 6; rows++)
-    {
-        for (int column = 0; column < 5; column++)
-        {
-            rowX += 30;
-            Fl_Input* input = new Fl_Input(rowX, rowY, 25, 25);
-            input->maximum_size(1);
-            this-> wordGrid[gridIndex++] = input;
+    this-> buildWordleGried();
+    this-> buildKeyboard();
+    this-> usernameLabel = new Fl_Box(50, 50, 100, 50, "welcome");
+    this-> usernameLabel-> box(Fl_Boxtype::FL_NO_BOX);
+    this-> submitGuessButton = new Fl_Button(320, 330, 70, 30, "Submit");
+    this-> submitGuessButton-> callback(cbSubmitGuess, this);
+
+    this-> login();
+    this-> gbController-> loadWordsForPlay();
+    this-> rowNumber = 0;
 
 
-        }
-        rowY += 30;
-        rowX = 150;
-    }
+    string name = "Welcome, " + this-> player-> getUserName() + "!";
+    char* nameLabel = strcpy(new char[name.length() + 1], name.c_str());
+    this-> usernameLabel-> label(nameLabel);
+
+}
+
+void GameBoardWindow::buildKeyboard()
+{
     int rowXKeys = 30;
     int rowYKeys = rowXKeys +180;
     int limitForRowLength = 10;
@@ -133,6 +136,7 @@ void GameBoardWindow::performFirstTimeSetup()
     int AsciiValue = 97;
     char letter = AsciiValue;
     int finalAscii = 123;
+
     for (int rows = 0; rows < 3; rows++)
     {
         for (int column = 0; column < limitForRowLength; column++)
@@ -147,30 +151,35 @@ void GameBoardWindow::performFirstTimeSetup()
                 button = new Fl_Button(rowXKeys, rowYKeys, 35, 35, converted);
             }
 
-
-
             this-> keyboardGrid[gridIndexKeyboard++] = button;
             AsciiValue++;
             letter = AsciiValue;
-
-
         }
         limitForRowLength--;
         rowYKeys += 40;
         rowXKeys = 30;
     }
-
-    //string nameLabel = "Welcome, " + name + "!";
-    this-> usernameLabel = new Fl_Box(50, 50, 100, 50, "Welcome!");
-    this-> usernameLabel ->box(Fl_Boxtype::FL_NO_BOX);
-
-
-    this-> submitGuessButton = new Fl_Button(320, 330, 70, 30, "Submit");
-    this-> submitGuessButton-> callback(cbSubmitGuess, this);
-    this-> login();
-    this-> gbController-> loadWordsForPlay();
-    this-> rowNumber = 0;
 }
+
+void GameBoardWindow::buildWordleGried()
+{
+int rowX = 150;
+    int rowY = rowX - 120;
+    int gridIndex = 0;
+    for (int rows = 0; rows < 6; rows++)
+    {
+        for (int column = 0; column < 5; column++)
+        {
+            rowX += 30;
+            Fl_Input* input = new Fl_Input(rowX, rowY, 25, 25);
+            input->maximum_size(1);
+            this-> wordGrid[gridIndex++] = input;
+        }
+        rowY += 30;
+        rowX = 150;
+    }
+}
+
 
 void GameBoardWindow::login()
 {
@@ -185,8 +194,6 @@ void GameBoardWindow::login()
    if (login.getWindowResult() == OKCancelWindow::WindowResult::OK)
     {
         this-> player = login.getPlayer();
-        cout<<this->player->getCurrentWinStreak();
-
     }
 }
 
@@ -198,6 +205,10 @@ GameBoardWindow::~GameBoardWindow()
 {
     delete this-> gbController;
     delete this-> submitGuessButton;
+    delete this-> player;
+    delete this-> usernameLabel;
+   // delete[] this-> wordGrid;
+   // delete[] this-> keyboardGrid;
 }
 
 }

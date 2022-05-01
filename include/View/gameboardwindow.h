@@ -28,6 +28,8 @@ class GameBoardWindow : public Fl_Window
         void updateColorAndDisable(Fl_Input* inputCell);
         GameBoardController* gbController;
         int rowNumber;
+        void buildWordleGried();
+        void buildKeyboard();
         void performFirstTimeSetup();
         void highLightLetterCell(Fl_Input* inputCell, int positionFlag);
 
