@@ -119,8 +119,6 @@ string FileIo::loadWords()
         }
     }
     int random = rand() % words.size();
-    cout<<words[random];
-    cout<<random;
     return words[random];
 }
 

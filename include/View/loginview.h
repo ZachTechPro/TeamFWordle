@@ -20,6 +20,7 @@ class LoginView : public OKCancelWindow
         LoginView();
         virtual ~LoginView();
 
+
     protected:
 
     private:

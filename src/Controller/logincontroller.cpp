@@ -12,6 +12,7 @@ LoginController::LoginController()
 
 void LoginController::loadOrCreatePlayer(const string& username)
 {
+
     for (Player* currPlayer : this-> activePlayers)
     {
         if (currPlayer-> getUserName().compare(username) == 0)
@@ -23,6 +24,7 @@ void LoginController::loadOrCreatePlayer(const string& username)
 
     this-> currentPlayer = new Player();
     this-> currentPlayer-> setUserName(username);
+
 }
 
 vector<Player*> LoginController::getActivePlayers()

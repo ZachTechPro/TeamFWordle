@@ -110,7 +110,7 @@ void GameBoardWindow::performFirstTimeSetup()
     this-> gbController = new GameBoardController();
     this-> hasGuessedCompletedWord = false;
     int rowX = 150;
-    int rowY = rowX;
+    int rowY = rowX - 120;
     int gridIndex = 0;
     for (int rows = 0; rows < 6; rows++)
     {
@@ -126,7 +126,45 @@ void GameBoardWindow::performFirstTimeSetup()
         rowY += 30;
         rowX = 150;
     }
-    this-> usernameLabel = new Fl_Output(50, 50, 100, 50);
+    int rowXKeys = 30;
+    int rowYKeys = rowXKeys +180;
+    int limitForRowLength = 10;
+    int gridIndexKeyboard = 0;
+    int AsciiValue = 97;
+    char letter = AsciiValue;
+    int finalAscii = 123;
+    for (int rows = 0; rows < 3; rows++)
+    {
+        for (int column = 0; column < limitForRowLength; column++)
+        {
+            rowXKeys += 40;
+            cout<<letter;
+            const char* converted = new char(letter);
+            Fl_Button* button;
+            if(AsciiValue == finalAscii){
+                button = new Fl_Button(rowXKeys, rowYKeys, 35, 35, "del");
+            }else{
+                button = new Fl_Button(rowXKeys, rowYKeys, 35, 35, converted);
+            }
+
+
+
+            this-> keyboardGrid[gridIndexKeyboard++] = button;
+            AsciiValue++;
+            letter = AsciiValue;
+
+
+        }
+        limitForRowLength--;
+        rowYKeys += 40;
+        rowXKeys = 30;
+    }
+
+    //string nameLabel = "Welcome, " + name + "!";
+    this-> usernameLabel = new Fl_Box(50, 50, 100, 50, "Welcome!");
+    this-> usernameLabel ->box(Fl_Boxtype::FL_NO_BOX);
+
+
     this-> submitGuessButton = new Fl_Button(320, 330, 70, 30, "Submit");
     this-> submitGuessButton-> callback(cbSubmitGuess, this);
     this-> login();
@@ -146,9 +184,12 @@ void GameBoardWindow::login()
     }
    if (login.getWindowResult() == OKCancelWindow::WindowResult::OK)
     {
-       this-> player = login.getPlayer();
+        this-> player = login.getPlayer();
+        cout<<this->player->getCurrentWinStreak();
+
     }
 }
+
 
 /** \brief Destructor
  *

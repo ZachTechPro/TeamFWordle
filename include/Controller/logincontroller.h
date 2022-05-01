@@ -12,6 +12,7 @@ class LoginController
 {
     public:
         Player* getCurrentPlayer();
+
         vector<Player*> getActivePlayers();
         void loadOrCreatePlayer(const string& username);
         void loadAllPlayers();

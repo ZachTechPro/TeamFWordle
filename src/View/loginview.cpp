@@ -41,8 +41,15 @@ void LoginView::okHandler()
 
 Player* LoginView::getPlayer()
 {
-    return this-> controller-> getCurrentPlayer();
+    cout<<this->controller->getCurrentPlayer()->getUserName();
+
+    return this->controller->getCurrentPlayer();
+
 }
+
+
+
+
 
 /** \brief Destructor
  */

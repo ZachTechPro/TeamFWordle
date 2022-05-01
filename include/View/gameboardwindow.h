@@ -4,6 +4,7 @@
 #include <FL/Fl_Window.H>
 #include <Fl/Fl_Input.H>
 #include <Fl/Fl_Table.H>
+#include <Fl/Fl_Box.H>
 #include <vector>
 #include "gameboardcontroller.h"
 using namespace Controller;
@@ -19,10 +20,11 @@ class GameBoardWindow : public Fl_Window
         void checkForCompletedSolution(int* solutionFlags, int numCells);
         void showWin();
         bool hasGuessedCompletedWord;
-        Fl_Output* usernameLabel;
+        Fl_Box* usernameLabel;
         Player* player;
         Fl_Button* submitGuessButton;
         Fl_Input* wordGrid[30];
+        Fl_Button* keyboardGrid[27];
         void updateColorAndDisable(Fl_Input* inputCell);
         GameBoardController* gbController;
         int rowNumber;
