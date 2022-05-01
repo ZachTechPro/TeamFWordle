@@ -28,6 +28,7 @@ class GameBoardWindow : public Fl_Window
         void updateColorAndDisable(Fl_Input* inputCell);
         GameBoardController* gbController;
         int rowNumber;
+        void handleLetter(const string& letter);
         void buildWordleGrid();
         void buildKeyboard();
         void performFirstTimeSetup();
@@ -35,6 +36,7 @@ class GameBoardWindow : public Fl_Window
 
     public:
         void login();
+        static void cbHandleLetter(Fl_Widget* widget, void* data);
         static void cbSubmitGuess(Fl_Widget* widget, void* data);
         void submitGuess();
         GameBoardWindow(int width, int height, const char* title);

@@ -38,6 +38,43 @@ void GameBoardWindow::cbSubmitGuess(Fl_Widget* widget, void* data)
     window-> submitGuess();
 }
 
+void GameBoardWindow::cbHandleLetter(Fl_Widget* widget, void* data)
+{
+    GameBoardWindow* window = (GameBoardWindow*) data;
+    window-> handleLetter(widget->label());
+}
+void GameBoardWindow::handleLetter(const string& letter){
+        if(letter == "del")
+        {
+            Fl_Input* last;
+            for(int i = 0; i < 30; i++)
+            {
+                cout<<this->wordGrid[i]->value();
+                if(strlen(this->wordGrid[i]->value()) > 0)
+                {
+                    last = this->wordGrid[i];
+                    continue;
+                }
+                last->value("");
+                return;
+
+            }
+        }
+        const char* letterChar = strcpy(new char[letter.length() + 1], letter.c_str());
+        for(int i = 0; i < 30; i++)
+        {
+        cout<<this->wordGrid[i]->value();
+        if(strlen(this->wordGrid[i]->value()) > 0){
+            continue;
+        }
+        this->wordGrid[i]->value(letterChar);
+        return;
+
+    }
+    cout<<letter;
+
+}
+
 /** \brief Will handle the submission of a user guess.
  *
  */
@@ -167,6 +204,7 @@ void GameBoardWindow::buildKeyboard()
             {
                 button = new Fl_Button(rowXKeys, rowYKeys, 35, 35, converted);
             }
+            button->callback(cbHandleLetter, this);
 
             this-> keyboardGrid[gridIndexKeyboard++] = button;
             AsciiValue++;
