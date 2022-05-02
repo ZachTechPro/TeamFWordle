@@ -29,7 +29,7 @@ class LoginView : public OKCancelWindow
         Player* player;
         Fl_Input* userNameInput;
         LoginController* controller;
-        Fl_Button* loginButton;
+        Fl_Check_Button* repeatButton;
         static void cbLogin(Fl_Widget* widget, void* data);
         void login();
 
