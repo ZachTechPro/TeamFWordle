@@ -4,6 +4,7 @@
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Button.H>
 #include <FL/Fl_Output.H>
+#include <FL/Fl_Check_Button.H>
 #include "logincontroller.h"
 #include "player.h"
 #include "okcancelwindow.h"
@@ -17,6 +18,7 @@ class LoginView : public OKCancelWindow
         void okHandler();
         void cancelHandler();
         Player* getPlayer();
+        bool getCheckedRepeatLetters();
         LoginView();
         virtual ~LoginView();
 

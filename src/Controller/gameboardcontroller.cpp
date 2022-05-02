@@ -17,7 +17,12 @@ GameBoardController::GameBoardController()
  */
 void GameBoardController::loadWordsForPlay()
 {
-    this->chosenWord = this-> fileIo-> loadWords();
+    if(this->repeatLetters){
+        this->chosenWord = this->fileIo->loadWords();
+    }else{
+        this->chosenWord = this-> fileIo->loadWordsNoDuplicateLetters();
+    }
+
     cout <<chosenWord << endl;
 }
 
@@ -38,6 +43,13 @@ bool GameBoardController::checkForCompletedSolution(int* solutionFlags, int numC
         }
     }
     return hasGuessedAll;
+}
+
+bool GameBoardController::getRepeatLetters(){
+    return this->repeatLetters;
+}
+void GameBoardController::setRepeatLetters(bool repeat){
+    this->repeatLetters = repeat;
 }
 
 /** \brief Destructor

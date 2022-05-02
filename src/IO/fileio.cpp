@@ -122,6 +122,53 @@ string FileIo::loadWords()
     return words[random];
 }
 
+string FileIo::loadWordsNoDuplicateLetters(){
+   srand(time(0));
+    fstream file;
+    int counter = 0;
+    vector<string> words;
+    file.open("words.txt", ios::in);
+    {
+        string word;
+        while(getline(file, word))
+        {
+            if(word.length() == 5)
+            {
+                if(areCharactersUnique(word)){
+                    words.push_back(word);
+                    counter++;
+                }
+
+            }
+        }
+    }
+    int random = rand() % words.size();
+    return words[random];
+
+}
+
+bool FileIo::areCharactersUnique(string str)
+{
+    // An integer to store presence/absence
+    // of 26 characters using its 32 bits.
+    int checker = 0;
+
+    for (int i = 0; i < str.length(); ++i)
+    {
+        int val = (str[i]-'a');
+
+        // If bit corresponding to current
+        // character is already set
+        if ((checker & (1 << val)) > 0)
+            return false;
+
+        // set bit in checker
+        checker |=  (1 << val);
+    }
+
+    return true;
+}
+
 /** \brief Destructor
  */
 FileIo::~FileIo()

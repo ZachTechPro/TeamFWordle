@@ -12,6 +12,8 @@ class GameBoardController
     public:
         bool checkForCompletedSolution(int* solutionFlags, int numCells);
         int* checkGuessAsCorrect(const string& userGuess);
+        bool getRepeatLetters();
+        void setRepeatLetters(bool repeat);
         GameBoardController();
         void loadWordsForPlay();
         virtual ~GameBoardController();
@@ -19,6 +21,7 @@ class GameBoardController
     protected:
 
     private:
+        bool repeatLetters = false;
         GuessChecker* guessChecker;
         string chosenWord;
         FileIo* fileIo;

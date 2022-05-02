@@ -46,6 +46,8 @@ Player* LoginView::getPlayer()
 
 }
 
+
+
 /** \brief Destructor
  */
 LoginView::~LoginView()

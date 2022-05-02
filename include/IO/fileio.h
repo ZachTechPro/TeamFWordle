@@ -15,6 +15,7 @@ class FileIo
         Player* loginOrCreatePlayer(const string& userName);
         vector<Player*> getPlayersList();
         bool canFindUser(const string& userName);
+        string loadWordsNoDuplicateLetters();
         string loadWords();
         FileIo();
         virtual ~FileIo();
@@ -23,6 +24,8 @@ class FileIo
 
     private:
         void loadPlayers();
+
+        bool areCharactersUnique(string str);
         Player* buildPlayer(vector<string> currentLineResults);
         vector<string> splitLineData(const string& lineData);
         string readFileIntoString(const string& path);

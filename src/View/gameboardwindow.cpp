@@ -260,6 +260,7 @@ void GameBoardWindow::login()
     if (login.getWindowResult() == OKCancelWindow::WindowResult::OK)
     {
         this-> player = login.getPlayer();
+        this->gbController->setRepeatLetters(true);
     }
 }
 
