@@ -11,24 +11,24 @@ namespace IO
 
 class FileIo
 {
-    public:
-        Player* loginOrCreatePlayer(const string& userName);
-        vector<Player*> getPlayersList();
-        bool canFindUser(const string& userName);
-        string loadWordsNoDuplicateLetters();
-        string loadWords();
-        FileIo();
-        virtual ~FileIo();
+public:
+    Player* loginOrCreatePlayer(const string& userName);
+    vector<Player*> getPlayersList();
+    bool canFindUser(const string& userName);
+    string loadWordsNoDuplicateLetters();
+    string loadWords();
+    FileIo();
+    virtual ~FileIo();
 
-    protected:
+protected:
 
-    private:
-        void loadPlayers();
+private:
+    void loadPlayers();
 
-        bool areCharactersUnique(string str);
-        Player* buildPlayer(vector<string> currentLineResults);
-        vector<string> splitLineData(const string& lineData);
-        string readFileIntoString(const string& path);
+    bool areCharactersUnique(string str);
+    Player* buildPlayer(vector<string> currentLineResults);
+    vector<string> splitLineData(const string& lineData);
+    string readFileIntoString(const string& path);
 };
 }
 #endif // FILEIO_H

@@ -10,22 +10,22 @@ namespace Controller
 {
 class LoginController
 {
-    public:
-        Player* getCurrentPlayer();
+public:
+    Player* getCurrentPlayer();
 
-        vector<Player*> getActivePlayers();
-        void loadOrCreatePlayer(const string& username);
-        void loadAllPlayers();
-        LoginController();
-        virtual ~LoginController();
+    vector<Player*> getActivePlayers();
+    void loadOrCreatePlayer(const string& username);
+    void loadAllPlayers();
+    LoginController();
+    virtual ~LoginController();
 
-    protected:
+protected:
 
-    private:
-        Player* currentPlayer;
-        vector<Player*> activePlayers;
+private:
+    Player* currentPlayer;
+    vector<Player*> activePlayers;
 
-        FileIo* fileIo;
+    FileIo* fileIo;
 };
 }
 #endif // LOGINCONTROLLER_H

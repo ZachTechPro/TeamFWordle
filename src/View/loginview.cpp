@@ -46,7 +46,8 @@ void LoginView::okHandler()
     this-> controller-> loadOrCreatePlayer(this-> userNameInput-> value());
     this-> hide();
 }
-bool LoginView::getCheckedRepeatLetters(){
+bool LoginView::getCheckedRepeatLetters()
+{
     return this->repeatButton->value();
 }
 Player* LoginView::getPlayer()

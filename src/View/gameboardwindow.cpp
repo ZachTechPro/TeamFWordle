@@ -44,40 +44,39 @@ void GameBoardWindow::cbHandleLetter(Fl_Widget* widget, void* data)
     window-> handleLetter(widget->label());
 }
 
-void GameBoardWindow::handleLetter(const string& letter){
-        if(letter == "del")
-        {
-            Fl_Input* last;
-            for(int i = 0; i < 30; i++)
-            {
-                cout<<this->wordGrid[i]->value();
-                if(strlen(this->wordGrid[i]->value()) > 0)
-                {
-                    last = this->wordGrid[i];
-                    continue;
-                }
-                if (i == 0)
-                {
-                    return;
-                }
-                last->value("");
-                return;
-
-            }
-        }
-        const char* letterChar = strcpy(new char[letter.length() + 1], letter.c_str());
+void GameBoardWindow::handleLetter(const string& letter)
+{
+    if(letter == "del")
+    {
+        Fl_Input* last;
         for(int i = 0; i < 30; i++)
         {
-        cout<<this->wordGrid[i]->value();
-        if(strlen(this->wordGrid[i]->value()) > 0){
+            cout<<this->wordGrid[i]->value();
+            if(strlen(this->wordGrid[i]->value()) > 0)
+            {
+                last = this->wordGrid[i];
+                continue;
+            }
+            if (i == 0)
+            {
+                return;
+            }
+            last->value("");
+            return;
+
+        }
+    }
+    const char* letterChar = strcpy(new char[letter.length() + 1], letter.c_str());
+    for(int i = 0; i < 30; i++)
+    {
+        if(strlen(this->wordGrid[i]->value()) > 0)
+        {
             continue;
         }
         this->wordGrid[i]->value(letterChar);
         return;
 
     }
-    cout<<letter;
-
 }
 
 /** \brief Will handle the submission of a user guess.
@@ -153,6 +152,15 @@ void GameBoardWindow::showStatsPage()
     }
 
     GameOverWindow gameOverWindow;
+
+    cout << this-> player-> getOneTryWins() << endl;
+    cout << this-> player-> getTwoTryWins() << endl;
+    cout << this-> player-> getThreeTryWins() << endl;
+    cout << this-> player-> getFourTryWins() << endl;
+    cout << this-> player-> getFiveTryWins() << endl;
+    cout << this-> player-> getSixTryWins() << endl;
+
+
     gameOverWindow.setPlayer(this-> player);
     gameOverWindow.set_modal();
     gameOverWindow.show();
@@ -204,7 +212,6 @@ void GameBoardWindow::buildKeyboard()
         for (int column = 0; column < limitForRowLength; column++)
         {
             rowXKeys += 40;
-            cout<<letter;
             const char* converted = new char(letter);
             Fl_Button* button;
             if(AsciiValue == finalAscii)

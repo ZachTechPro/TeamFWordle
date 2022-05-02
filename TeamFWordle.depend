@@ -6,7 +6,7 @@
 	"gameboardwindow.h"
 	"loginview.h"
 
-1651441834 /home/zmadden1/Desktop/TeamFWordle/include/View/gameboardwindow.h
+1651462936 /home/zmadden1/Desktop/TeamFWordle/include/View/gameboardwindow.h
 	<FL/Fl_Button.H>
 	<FL/Fl_Window.H>
 	<Fl/Fl_Input.H>
@@ -15,7 +15,7 @@
 	<vector>
 	"gameboardcontroller.h"
 
-1651425296 source:/home/zmadden1/Desktop/TeamFWordle/src/View/gameboardwindow.cpp
+1651468474 source:/home/zmadden1/Desktop/TeamFWordle/src/View/gameboardwindow.cpp
 	"gameboardwindow.h"
 	<FL/fl_types.h>
 	<Fl/fl_draw.H>
@@ -26,7 +26,7 @@
 	"player.h"
 	"gameoverwindow.h"
 
-1651412563 source:/home/zmadden1/Desktop/TeamFWordle/src/IO/fileio.cpp
+1651462936 source:/home/zmadden1/Desktop/TeamFWordle/src/IO/fileio.cpp
 	"fileio.h"
 	<iostream>
 	<string>
@@ -38,7 +38,7 @@
 	"player.h"
 	<map>
 
-1651339576 /home/zmadden1/Desktop/TeamFWordle/include/IO/fileio.h
+1651462936 /home/zmadden1/Desktop/TeamFWordle/include/IO/fileio.h
 	<string>
 	<vector>
 	"player.h"
@@ -47,15 +47,15 @@
 	"player.h"
 	<iostream>
 
-1651324420 /home/zmadden1/Desktop/TeamFWordle/include/Model/player.h
+1651462936 /home/zmadden1/Desktop/TeamFWordle/include/Model/player.h
 	<string>
 
-1651355254 /home/zmadden1/Desktop/TeamFWordle/include/Controller/gameboardcontroller.h
+1651462936 /home/zmadden1/Desktop/TeamFWordle/include/Controller/gameboardcontroller.h
 	"fileio.h"
 	<FL/Fl_Output.H>
 	"guesschecker.h"
 
-1651360071 source:/home/zmadden1/Desktop/TeamFWordle/src/Controller/gameboardcontroller.cpp
+1651462936 source:/home/zmadden1/Desktop/TeamFWordle/src/Controller/gameboardcontroller.cpp
 	"gameboardcontroller.h"
 	<iostream>
 
@@ -64,7 +64,7 @@
 	<string>
 	<iostream>
 
-1651025725 /home/zmadden1/Desktop/TeamFWordle/include/Utils/guesschecker.h
+1651462935 /home/zmadden1/Desktop/TeamFWordle/include/Utils/guesschecker.h
 	<string>
 
 1651387067 source:/home/mallred3/Desktop/Classwork/TeamFWordle/main.cpp
@@ -135,7 +135,7 @@
 	"player.h"
 	"gameoverwindow.h"
 
-1651423133 source:/home/zmadden1/Desktop/TeamFWordle/src/View/loginview.cpp
+1651462936 source:/home/zmadden1/Desktop/TeamFWordle/src/View/loginview.cpp
 	"loginview.h"
 	<FL/Fl.H>
 	<FL/fl_types.h>
@@ -144,21 +144,22 @@
 	<iostream>
 	"okcancelwindow.h"
 
-1651412563 /home/zmadden1/Desktop/TeamFWordle/include/View/loginview.h
+1651462936 /home/zmadden1/Desktop/TeamFWordle/include/View/loginview.h
 	<Fl/Fl_Input.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Button.H>
 	<FL/Fl_Output.H>
+	<FL/Fl_Check_Button.H>
 	"logincontroller.h"
 	"player.h"
 	"okcancelwindow.h"
 
-1651412563 /home/zmadden1/Desktop/TeamFWordle/include/Controller/logincontroller.h
+1651462936 /home/zmadden1/Desktop/TeamFWordle/include/Controller/logincontroller.h
 	<string>
 	"fileio.h"
 	<vector>
 
-1651418544 source:/home/zmadden1/Desktop/TeamFWordle/src/Controller/logincontroller.cpp
+1651462936 source:/home/zmadden1/Desktop/TeamFWordle/src/Controller/logincontroller.cpp
 	"logincontroller.h"
 	<iostream>
 	<string>
@@ -201,7 +202,7 @@
 	<Fl/Fl_Window.H>
 	<Fl/Fl_Button.H>
 
-1651324420 source:/home/zmadden1/Desktop/TeamFWordle/src/View/okcancelwindow.cpp
+1651464457 source:/home/zmadden1/Desktop/TeamFWordle/src/View/okcancelwindow.cpp
 	"okcancelwindow.h"
 
 1651380241 /home/mallred3/Desktop/Classwork/TeamFWordle/include/View/okcancelwindow.h
@@ -211,13 +212,13 @@
 1651380241 source:/home/mallred3/Desktop/Classwork/TeamFWordle/src/View/okcancelwindow.cpp
 	"okcancelwindow.h"
 
-1651425402 source:/home/zmadden1/Desktop/TeamFWordle/src/View/gameoverwindow.cpp
+1651468571 source:/home/zmadden1/Desktop/TeamFWordle/src/View/gameoverwindow.cpp
 	"gameoverwindow.h"
 	"okcancelwindow.h"
 	<iostream>
 	<Fl/Fl_Chart.H>
 
-1651425058 /home/zmadden1/Desktop/TeamFWordle/include/View/gameoverwindow.h
+1651467515 /home/zmadden1/Desktop/TeamFWordle/include/View/gameoverwindow.h
 	"okcancelwindow.h"
 	<Fl/Fl_Chart.H>
 	"player.h"

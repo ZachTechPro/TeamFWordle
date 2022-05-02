@@ -22,7 +22,7 @@ OKCancelWindow::OKCancelWindow(int width, int height, const char* title) : Fl_Wi
     this->okButton = new Fl_Button(0, 0, 70, 30, "OK");
     this->okButton->callback(cbOk, this);
 
-    this->cancelButton = new Fl_Button(0, 0, 70, 30, "Cancel");
+    this->cancelButton = new Fl_Button(0, 0, 70, 30, "Exit");
     this->cancelButton->callback(cbCancel, this);
 
     end();

@@ -6,8 +6,8 @@ namespace Controller
 {
 LoginController::LoginController()
 {
-     this-> fileIo = new FileIo();
-     this-> currentPlayer = 0 ;
+    this-> fileIo = new FileIo();
+    this-> currentPlayer = 0 ;
 }
 
 void LoginController::loadOrCreatePlayer(const string& username)

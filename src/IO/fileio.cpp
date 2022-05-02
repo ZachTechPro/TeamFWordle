@@ -122,8 +122,9 @@ string FileIo::loadWords()
     return words[random];
 }
 
-string FileIo::loadWordsNoDuplicateLetters(){
-   srand(time(0));
+string FileIo::loadWordsNoDuplicateLetters()
+{
+    srand(time(0));
     fstream file;
     int counter = 0;
     vector<string> words;
@@ -134,7 +135,8 @@ string FileIo::loadWordsNoDuplicateLetters(){
         {
             if(word.length() == 5)
             {
-                if(areCharactersUnique(word)){
+                if(areCharactersUnique(word))
+                {
                     words.push_back(word);
                     counter++;
                 }

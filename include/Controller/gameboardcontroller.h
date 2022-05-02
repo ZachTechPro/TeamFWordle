@@ -9,22 +9,22 @@ namespace Controller
 {
 class GameBoardController
 {
-    public:
-        bool checkForCompletedSolution(int* solutionFlags, int numCells);
-        int* checkGuessAsCorrect(const string& userGuess);
-        bool getRepeatLetters();
-        void setRepeatLetters(bool repeat);
-        GameBoardController();
-        void loadWordsForPlay();
-        virtual ~GameBoardController();
+public:
+    bool checkForCompletedSolution(int* solutionFlags, int numCells);
+    int* checkGuessAsCorrect(const string& userGuess);
+    bool getRepeatLetters();
+    void setRepeatLetters(bool repeat);
+    GameBoardController();
+    void loadWordsForPlay();
+    virtual ~GameBoardController();
 
-    protected:
+protected:
 
-    private:
-        bool repeatLetters = false;
-        GuessChecker* guessChecker;
-        string chosenWord;
-        FileIo* fileIo;
+private:
+    bool repeatLetters = false;
+    GuessChecker* guessChecker;
+    string chosenWord;
+    FileIo* fileIo;
 };
 }
 #endif // GAMEBOARDCONTROLLER_H

@@ -16,31 +16,31 @@ namespace view
 class GameBoardWindow : public Fl_Window
 {
 
-    private:
-        void checkForCompletedSolution(int* solutionFlags, int numCells);
-        void showStatsPage();
-        bool hasGuessedCompletedWord;
-        Fl_Box* usernameLabel;
-        Player* player;
-        Fl_Button* submitGuessButton;
-        Fl_Input* wordGrid[30];
-        Fl_Button* keyboardGrid[27];
-        void updateColorAndDisable(Fl_Input* inputCell);
-        GameBoardController* gbController;
-        int rowNumber;
-        void handleLetter(const string& letter);
-        void buildWordleGrid();
-        void buildKeyboard();
-        void performFirstTimeSetup();
-        void highLightLetterCell(Fl_Input* inputCell, int positionFlag);
+private:
+    void checkForCompletedSolution(int* solutionFlags, int numCells);
+    void showStatsPage();
+    bool hasGuessedCompletedWord;
+    Fl_Box* usernameLabel;
+    Player* player;
+    Fl_Button* submitGuessButton;
+    Fl_Input* wordGrid[30];
+    Fl_Button* keyboardGrid[27];
+    void updateColorAndDisable(Fl_Input* inputCell);
+    GameBoardController* gbController;
+    int rowNumber;
+    void handleLetter(const string& letter);
+    void buildWordleGrid();
+    void buildKeyboard();
+    void performFirstTimeSetup();
+    void highLightLetterCell(Fl_Input* inputCell, int positionFlag);
 
-    public:
-        void login();
-        static void cbHandleLetter(Fl_Widget* widget, void* data);
-        static void cbSubmitGuess(Fl_Widget* widget, void* data);
-        void submitGuess();
-        GameBoardWindow(int width, int height, const char* title);
-        virtual ~GameBoardWindow();
+public:
+    void login();
+    static void cbHandleLetter(Fl_Widget* widget, void* data);
+    static void cbSubmitGuess(Fl_Widget* widget, void* data);
+    void submitGuess();
+    GameBoardWindow(int width, int height, const char* title);
+    virtual ~GameBoardWindow();
 
 
 };

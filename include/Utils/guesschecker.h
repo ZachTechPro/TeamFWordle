@@ -7,16 +7,16 @@ namespace Utils
 
 class GuessChecker
 {
-    public:
-        void setWordleAnswer(const string& userGuess);
-        int* checkGuessAsCorrect(const string& userGuess, const string& chosenWord);
-        GuessChecker();
-        virtual ~GuessChecker();
+public:
+    void setWordleAnswer(const string& userGuess);
+    int* checkGuessAsCorrect(const string& userGuess, const string& chosenWord);
+    GuessChecker();
+    virtual ~GuessChecker();
 
-    protected:
+protected:
 
-    private:
-        string answer;
+private:
+    string answer;
 };
 }
 

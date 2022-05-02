@@ -14,24 +14,24 @@ namespace view
 {
 class LoginView : public OKCancelWindow
 {
-    public:
-        void okHandler();
-        void cancelHandler();
-        Player* getPlayer();
-        bool getCheckedRepeatLetters();
-        LoginView();
-        virtual ~LoginView();
+public:
+    void okHandler();
+    void cancelHandler();
+    Player* getPlayer();
+    bool getCheckedRepeatLetters();
+    LoginView();
+    virtual ~LoginView();
 
 
-    protected:
+protected:
 
-    private:
-        Player* player;
-        Fl_Input* userNameInput;
-        LoginController* controller;
-        Fl_Check_Button* repeatButton;
-        static void cbLogin(Fl_Widget* widget, void* data);
-        void login();
+private:
+    Player* player;
+    Fl_Input* userNameInput;
+    LoginController* controller;
+    Fl_Check_Button* repeatButton;
+    static void cbLogin(Fl_Widget* widget, void* data);
+    void login();
 
 
 };

@@ -18,6 +18,7 @@ public:
 protected:
 
 private:
+    void drawStats();
     Player* player;
     Fl_Chart* statsChart;
 };
