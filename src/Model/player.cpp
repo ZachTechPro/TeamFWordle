@@ -14,6 +14,7 @@ Player::Player()
     this-> totalGamesPlayed = 0;
     this-> currentWinStreak = 0;
     this-> maxWinStreak = 0;
+    this-> isOnWinStreak = false;
 }
 Player::Player(const string& name, int totalGamesPlayed, double winPercentage, int currentWinStreak, int maxWinStreak, int winDistribution[6])
 {
@@ -28,6 +29,11 @@ Player::Player(const string& name, int totalGamesPlayed, double winPercentage, i
     this->fourTry = winDistribution[3];
     this->fiveTry = winDistribution[4];
     this->sixTry = winDistribution[5];
+}
+
+bool Player::getIsOnWinStreak()
+{
+    return this-> isOnWinStreak;
 }
 
 

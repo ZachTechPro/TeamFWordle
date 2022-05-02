@@ -10,6 +10,8 @@ namespace Controller
 class GameBoardController
 {
 public:
+    void updateGameLostStats(Player* player);
+    void updateGameWonStats(Player* player, int numGuesses);
     bool checkForCompletedSolution(int* solutionFlags, int numCells);
     int* checkGuessAsCorrect(const string& userGuess);
     bool getRepeatLetters();

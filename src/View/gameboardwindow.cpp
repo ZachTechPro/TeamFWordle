@@ -86,9 +86,11 @@ void GameBoardWindow::submitGuess()
 {
     string userGuess = "";
     int numCells = 4;
-
-    if (this-> rowNumber >= 25)
+    bool hasRunOutOfGuesses = this-> rowNumber >= 25;
+    if (hasRunOutOfGuesses)
     {
+
+
         this-> showStatsPage();
     }
 
@@ -109,6 +111,7 @@ void GameBoardWindow::submitGuess()
 
         if (this-> hasGuessedCompletedWord)
         {
+            this-> gbController-> updateGameWonStats(this-> player, this-> rowNumber + 1);
             this-> showStatsPage();
         }
 
@@ -152,15 +155,6 @@ void GameBoardWindow::showStatsPage()
     }
 
     GameOverWindow gameOverWindow;
-
-    cout << this-> player-> getOneTryWins() << endl;
-    cout << this-> player-> getTwoTryWins() << endl;
-    cout << this-> player-> getThreeTryWins() << endl;
-    cout << this-> player-> getFourTryWins() << endl;
-    cout << this-> player-> getFiveTryWins() << endl;
-    cout << this-> player-> getSixTryWins() << endl;
-
-
     gameOverWindow.setPlayer(this-> player);
     gameOverWindow.set_modal();
     gameOverWindow.show();
@@ -186,7 +180,6 @@ void GameBoardWindow::performFirstTimeSetup()
     this-> usernameLabel-> box(Fl_Boxtype::FL_NO_BOX);
     this-> submitGuessButton = new Fl_Button(320, 330, 70, 30, "Submit");
     this-> submitGuessButton-> callback(cbSubmitGuess, this);
-
     this-> login();
     this-> gbController-> loadWordsForPlay();
     this-> rowNumber = 0;

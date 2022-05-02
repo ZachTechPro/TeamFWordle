@@ -24,6 +24,8 @@ public:
     int getFourTryWins();
     int getFiveTryWins();
     int getSixTryWins();
+    bool getIsOnWinStreak();
+    void setWinStreakStatus(bool status);
     void setOneTryWins(int newWinNumber);
     void setTwoTryWins(int newWinNumber);
     void setThreeTryWins(int newWinNumber);
@@ -38,6 +40,7 @@ protected:
 
 private:
     string userName;
+    bool isOnWinStreak;
     double winPercentage;
     int totalGamesPlayed;
     int currentWinStreak;
