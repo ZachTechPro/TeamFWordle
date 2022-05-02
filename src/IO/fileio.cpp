@@ -170,6 +170,22 @@ bool FileIo::areCharactersUnique(string str)
 
     return true;
 }
+void FileIo::SaveFile(Player* players[], int playerLength){
+    string fileName = "SaveFile.csv";
+    fstream file;
+    file.open(fileName, ios::out);
+    for(int i = 0; i < playerLength; i++){
+        Player* player = players[i];
+        file << (player->getUserName() + "," + to_string(player->getWinPercentage()) + ","
+                    + to_string(player->getTotalGamesPlayed()) + "," + to_string(player->getCurrentWinStreak())
+                    + "," + to_string(player->getMaxWinStreak()) + "," + to_string(player->getOneTryWins())
+                   +"," + to_string(player->getTwoTryWins()) +"," + to_string(player->getThreeTryWins())
+                   + "," + to_string(player->getFourTryWins()) + "," + to_string(player->getFiveTryWins())
+                   + "," + to_string(player->getSixTryWins()));
+    }
+    file.close();
+
+}
 
 /** \brief Destructor
  */

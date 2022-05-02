@@ -17,6 +17,7 @@ public:
     bool canFindUser(const string& userName);
     string loadWordsNoDuplicateLetters();
     string loadWords();
+    void SaveFile(Player* players[], int playerLength);
     FileIo();
     virtual ~FileIo();
 
