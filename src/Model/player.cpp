@@ -43,8 +43,8 @@ string Player::printPlayer()
     result += to_string(this-> getFourTryWins()) + "\n\n";
     result += to_string(this-> getFiveTryWins()) + "\n\n";
     result += to_string(this-> getSixTryWins()) + "\n\n\n\n";
-    result += string("total games played: ") + to_string(this-> getTotalGamesPlayed()) + "\n";
-    result += string("win percentage: ") + to_string(this-> getWinPercentage()) + "\n";
+    result += string("total games played: ") + to_string(this-> getTotalGamesPlayed()) +"\n";
+    result += string("win percentage: ") + to_string((int)this-> getWinPercentage()) + "%" + "\n";
     result += string("max win streak: ") + to_string(this-> getMaxWinStreak()) + "\n";
 
     return result;
@@ -64,7 +64,11 @@ void Player::setIsOnWinStreak(bool isWinStreak)
 void Player::updateWinPercentage()
 {
     int totalGamesWon = this-> oneTry + this-> twoTry + this-> threeTry + this-> fourTry + this-> fiveTry + this-> sixTry;
-    int winPercentage = totalGamesWon / this-> totalGamesPlayed;
+    double winPercentage = ((double)totalGamesWon / (double)this-> totalGamesPlayed * 100);
+    cout<<"Percent"<<endl;
+    cout<<to_string(totalGamesWon) +"/"+to_string(this->totalGamesPlayed)<<endl;
+    cout<<to_string(winPercentage);
+    this->winPercentage = winPercentage;
 }
 
 /*

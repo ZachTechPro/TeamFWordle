@@ -21,12 +21,15 @@ LoginView::LoginView() : OKCancelWindow(330, 215, "Login")
     this-> controller-> loadAllPlayers();
     this-> player = 0;
     begin();
-    Fl_Box* greetingLabel = new Fl_Box(110,50,100,50,"Welcome. Please sign in with your username.");
+    Fl_Box* greetingLabel = new Fl_Box(110,10,100,50,"Welcome. Please sign in with your username.");
 
     greetingLabel-> box(Fl_Boxtype::FL_NO_BOX);
+    Fl_Box* newUserLabel = new Fl_Box(110,25,100,50,"If you're new just type your name!");
+
+    newUserLabel-> box(Fl_Boxtype::FL_NO_BOX);
     this-> userNameInput = new Fl_Input(90,100,70,30, "username");
-    this-> repeatButton = new Fl_Check_Button(180,100,130,30, "Repeat Letters?");
-    Fl_Box* warningLabel = new Fl_Box(200,115,100,50,"Warning: Hard");
+    this-> repeatButton = new Fl_Check_Button(180,140,130,30, "Repeat Letters?");
+    Fl_Box* warningLabel = new Fl_Box(200,145,100,50,"Warning: Hard");
 
     warningLabel-> box(Fl_Boxtype::FL_NO_BOX);
     this->repeatButton->value(false);

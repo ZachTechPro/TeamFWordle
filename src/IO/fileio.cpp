@@ -174,7 +174,7 @@ bool FileIo::areCharactersUnique(string str)
 }
 void FileIo::SaveFile(Player* players[], int playerLength)
 {
-    string fileName = "SaveFile.csv";
+    string fileName = "users.csv";
     fstream file;
     file.open(fileName, ios::out);
     for(int i = 0; i < playerLength; i++)
