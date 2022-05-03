@@ -29,9 +29,8 @@ void GameOverWindow::drawStats()
     this-> statsChart-> insert(5, this-> player-> getFiveTryWins(), "5 guesses", 5);
     this-> statsChart-> insert(6, this-> player-> getSixTryWins(), "6 guesses", 6);
 
- char* output = strcpy(new char[player-> printPlayer().length() + 1], player-> printPlayer().c_str());
- outputLabel-> label(output);
- cout << this-> player-> printPlayer() << endl;
+    char* output = strcpy(new char[player-> printPlayer().length() + 1], player-> printPlayer().c_str());
+    outputLabel-> label(output);
 }
 
 void GameOverWindow::setPlayer(Player* player)

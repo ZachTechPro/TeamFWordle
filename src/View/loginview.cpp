@@ -44,7 +44,7 @@ void LoginView::cancelHandler()
 void LoginView::okHandler()
 {
     this-> controller-> loadOrCreatePlayer(this-> userNameInput-> value());
-    this-> hide();
+        this-> hide();
 }
 bool LoginView::getCheckedRepeatLetters()
 {

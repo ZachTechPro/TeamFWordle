@@ -47,7 +47,7 @@ string Player::printPlayer()
     result += string("win percentage: ") + to_string(this-> getWinPercentage()) + "\n";
     result += string("max win streak: ") + to_string(this-> getMaxWinStreak()) + "\n";
 
-  return result;
+    return result;
 
 }
 
