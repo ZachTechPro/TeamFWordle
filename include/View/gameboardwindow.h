@@ -29,6 +29,7 @@ private:
     Fl_Input* wordGrid[30];
     Fl_Button* keyboardGrid[27];
     Fl_Box* wordGuessLabel;
+    void updateKeyboard();
     void updateColorAndDisable(Fl_Input* inputCell);
     GameBoardController* gbController;
     int rowNumber;

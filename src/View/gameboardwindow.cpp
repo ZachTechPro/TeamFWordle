@@ -26,6 +26,23 @@ GameBoardWindow::GameBoardWindow(int width, int height, const char* title) : Fl_
     this-> performFirstTimeSetup();
 }
 
+void GameBoardWindow::updateKeyboard(){
+    for(int i = 0; i < 30; i++){
+                string valueOfWord = string(this->wordGrid[i]->value());
+            for(int j = 0; j < 27; j++ ){
+                    string valueOfKey = string(this->keyboardGrid[j]->label());
+                if(valueOfKey == valueOfWord){
+                    this->keyboardGrid[j]->color(this->wordGrid[i]->color());
+                    this->keyboardGrid[j]->deactivate();
+                    this->keyboardGrid[j]->activate();
+                }
+            }
+
+
+    }
+
+}
+
 /** \brief call back for handling submit button click
  *
  * \param widget -- the FLTK widget
@@ -143,6 +160,7 @@ void GameBoardWindow::submitGuess()
             this-> rowNumber += rowIncrement;
         }
     }
+    this->updateKeyboard();
 }
 
 ///< private
@@ -275,7 +293,7 @@ void GameBoardWindow::buildKeyboard()
                 button = new Fl_Button(rowXKeys, rowYKeys, 35, 35, converted);
             }
             button->callback(cbHandleLetter, this);
-
+            button->color(FL_WHITE);
             this-> keyboardGrid[gridIndexKeyboard++] = button;
             AsciiValue++;
             letter = AsciiValue;
