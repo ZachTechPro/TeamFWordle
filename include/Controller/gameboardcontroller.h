@@ -21,6 +21,7 @@ public:
     GameBoardController();
     void loadWordsForPlay();
     virtual ~GameBoardController();
+    string getChosenWord();
 
 protected:
 

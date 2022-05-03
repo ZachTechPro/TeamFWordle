@@ -149,6 +149,9 @@ void GameBoardController::updatePlayerAndSave(Player* player)
     this-> fileIo-> SaveFile(&updatedPlayersList[0], updatedPlayersList.size());
 }
 
+string GameBoardController::getChosenWord(){
+    return this->chosenWord;
+}
 
 /** \brief Destructor
 *

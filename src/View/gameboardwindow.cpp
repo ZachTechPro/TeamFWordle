@@ -4,6 +4,7 @@
 #include <FL/Fl.H>
 #include <iostream>
 #include <vector>
+#define DIAGNOSTIC_OUTPUT
 #include "loginview.h"
 #include "player.h"
 #include "gameoverwindow.h"
@@ -203,6 +204,8 @@ void GameBoardWindow::performFirstTimeSetup()
         this-> buildKeyboard();
         this-> usernameLabel = new Fl_Box(50, 50, 100, 50, "welcome");
         this-> usernameLabel-> box(Fl_Boxtype::FL_NO_BOX);
+        this->wordGuessLabel = new Fl_Box(50, 75, 100, 50, "");
+        this->wordGuessLabel->box(Fl_Boxtype::FL_NO_BOX);
         this-> submitGuessButton = new Fl_Button(320, 330, 70, 30, "Submit");
         this-> submitGuessButton-> callback(cbSubmitGuess, this);
         this-> login();
@@ -217,11 +220,16 @@ void GameBoardWindow::performFirstTimeSetup()
     this-> roundCount = 1;
     this-> hasGuessedCompletedWord = false;
     this-> rowNumber = 0;
-
+    string word = this->gbController->getChosenWord();
+    char* wordLabel = strcpy(new char[word.length() + 1], word.c_str());
     string name = "Welcome, " + this-> player-> getUserName() + "!";
     char* nameLabel = strcpy(new char[name.length() + 1], name.c_str());
     this-> usernameLabel-> label(nameLabel);
     this->replay = true;
+
+    #ifdef DIAGNOSTIC_OUTPUT
+    this->wordGuessLabel->label(wordLabel);
+    #endif
 
 }
 
