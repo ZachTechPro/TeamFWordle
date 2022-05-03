@@ -41,6 +41,7 @@ public:
     void login();
     static void cbHandleLetter(Fl_Widget* widget, void* data);
     static void cbSubmitGuess(Fl_Widget* widget, void* data);
+    bool isWordValid(const string& userGuess);
     void submitGuess();
     GameBoardWindow(int width, int height, const char* title);
     virtual ~GameBoardWindow();

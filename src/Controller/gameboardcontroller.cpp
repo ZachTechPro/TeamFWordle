@@ -29,6 +29,22 @@ void GameBoardController::loadWordsForPlay()
     cout <<chosenWord << endl;
 }
 
+bool GameBoardController::isValidGuess(const string& userGuess)
+{
+    bool isValid = false;
+     cout << "here" << endl;
+     cout << this-> fileIo-> getWords().size();
+    for (auto word : this-> fileIo-> getWords())
+    {
+        if (word.compare(userGuess) == 0)
+        {
+            isValid = true;
+        }
+    }
+
+    return isValid;
+}
+
 int* GameBoardController::checkGuessAsCorrect(const string& userGuess)
 {
     return this-> guessChecker-> checkGuessAsCorrect(userGuess, chosenWord);

@@ -107,7 +107,7 @@ void GameBoardWindow::submitGuess()
         userGuess += this-> wordGrid[this-> rowNumber + i]-> value();
     }
 
-    if (userGuess.length() == numCells + 1)
+    if (userGuess.length() == numCells + 1 && this-> gbController-> isValidGuess(userGuess))
     {
         int* solution = this-> gbController-> checkGuessAsCorrect(userGuess);
         this-> checkForCompletedSolution(solution, numCells);
