@@ -18,6 +18,7 @@ class GameBoardWindow : public Fl_Window
 
 private:
     int roundCount;
+    bool replay = false;
     void checkForCompletedSolution(int* solutionFlags, int numCells);
     void showStatsPage();
     bool hasGuessedCompletedWord;

@@ -48,6 +48,7 @@ void GameBoardWindow::handleLetter(const string& letter)
 {
     if(letter == "del")
     {
+
         Fl_Input* last;
         for(int i = 0; i < 30; i++)
         {
@@ -61,8 +62,15 @@ void GameBoardWindow::handleLetter(const string& letter)
             {
                 return;
             }
+            if(i == (this->roundCount-1) * 5){
+                cout<<to_string(i);
+                cout<<to_string(this->roundCount);
+                cout<<to_string((this->roundCount-1) * 5);
+                return;
+            }
             last->value("");
             return;
+
 
         }
     }
@@ -72,6 +80,9 @@ void GameBoardWindow::handleLetter(const string& letter)
         if(strlen(this->wordGrid[i]->value()) > 0)
         {
             continue;
+        }
+        if(i == this->roundCount * 5){
+            return;
         }
         this->wordGrid[i]->value(letterChar);
         return;
@@ -179,13 +190,17 @@ void GameBoardWindow::performFirstTimeSetup()
     this-> usernameLabel-> box(Fl_Boxtype::FL_NO_BOX);
     this-> submitGuessButton = new Fl_Button(320, 330, 70, 30, "Submit");
     this-> submitGuessButton-> callback(cbSubmitGuess, this);
-    this-> login();
+    if(!this->replay){
+        this-> login();
+    }
+
     this-> gbController-> loadWordsForPlay();
     this-> rowNumber = 0;
 
     string name = "Welcome, " + this-> player-> getUserName() + "!";
     char* nameLabel = strcpy(new char[name.length() + 1], name.c_str());
     this-> usernameLabel-> label(nameLabel);
+    this->replay = true;
 
 }
 
