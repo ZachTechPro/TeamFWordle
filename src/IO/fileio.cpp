@@ -21,6 +21,11 @@ FileIo::FileIo()
 {
 }
 
+/// \brief gets the list of players from the csv
+///
+/// \return vector<Player*>
+///
+///
 vector<Player*> FileIo::getPlayersList()
 {
     fstream userFile;
@@ -81,12 +86,17 @@ Player* FileIo::buildPlayer(vector<string> currentLineResults)
     return player;
 }
 
+/// \brief gets the list of words
+///
+/// \return vector<string>
+///
+///
 vector<string> FileIo::getWords()
 {
     return this-> words;
 }
 
-
+///< private
 vector<string> FileIo::splitLineData(const string& lineData)
 {
     stringstream sstream(lineData);
@@ -129,6 +139,11 @@ string FileIo::loadWords()
     return words[random];
 }
 
+/// \brief loads the words with no duplicate letters
+///
+/// \return string
+///
+///
 string FileIo::loadWordsNoDuplicateLetters()
 {
     srand(time(0));
@@ -156,7 +171,7 @@ string FileIo::loadWordsNoDuplicateLetters()
     return words[random];
 
 }
-
+///< private
 bool FileIo::areCharactersUnique(string str)
 {
     int checker = 0;
@@ -171,6 +186,13 @@ bool FileIo::areCharactersUnique(string str)
 
     return true;
 }
+/// \brief saves the list of players to the csv
+///
+/// \param players[] Player*
+/// \param playerLength int
+/// \return void
+///
+///
 void FileIo::SaveFile(Player* players[], int playerLength)
 {
     string fileName = "users.txt";

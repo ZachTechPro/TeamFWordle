@@ -29,6 +29,12 @@ void GameBoardController::loadWordsForPlay()
     cout <<chosenWord << endl;
 }
 
+/// \brief Checks if the guess is the a usable word
+///
+/// \param userGuess const string&
+/// \return bool
+///
+///
 bool GameBoardController::isValidGuess(const string& userGuess)
 {
     bool isValid = false;
@@ -45,11 +51,24 @@ bool GameBoardController::isValidGuess(const string& userGuess)
     return isValid;
 }
 
+/// \brief Checks if the guess is the correct word
+///
+/// \param userGuess const string&
+/// \return int*
+///
+///
 int* GameBoardController::checkGuessAsCorrect(const string& userGuess)
 {
     return this-> guessChecker-> checkGuessAsCorrect(userGuess, chosenWord);
 }
 
+/// \brief Checks if all of the letters are correct, if not returns false
+///
+/// \param solutionFlags int*
+/// \param numCells int
+/// \return bool
+///
+///
 bool GameBoardController::checkForCompletedSolution(int* solutionFlags, int numCells)
 {
     int correctLetterCorrectSpotFlag = 3;
@@ -64,15 +83,32 @@ bool GameBoardController::checkForCompletedSolution(int* solutionFlags, int numC
     return hasGuessedAll;
 }
 
+/// \brief returns if the letters are allowed to repeat
+///
+/// \return bool
+///
+///
 bool GameBoardController::getRepeatLetters()
 {
     return this->repeatLetters;
 }
+/// \brief sets if the letters are allowed to repeat
+///
+/// \param repeat bool
+/// \return void
+///
+///
 void GameBoardController::setRepeatLetters(bool repeat)
 {
     this->repeatLetters = repeat;
 }
 
+/// \brief Updates the players stats to account for the loss taken
+///
+/// \param player Player*
+/// \return void
+///
+///
 void GameBoardController::updateGameLostStats(Player* player)
 {
     player-> setIsOnWinStreak(false);
@@ -80,6 +116,13 @@ void GameBoardController::updateGameLostStats(Player* player)
     this-> updatePlayerAndSave(player);
 }
 
+/// \brief Updates the players stats to account for the win
+///
+/// \param player Player*
+/// \param numGuesses int
+/// \return void
+///
+///
 void GameBoardController::updateGameWonStats(Player* player, int numGuesses)
 {
     player-> setIsOnWinStreak(true);
@@ -132,6 +175,12 @@ void GameBoardController::updateGameWonStats(Player* player, int numGuesses)
     this-> updatePlayerAndSave(player);
 }
 
+/// \brief Updates the player in the list of players, and then overwrites the csv
+///
+/// \param player Player*
+/// \return void
+///
+///
 void GameBoardController::updatePlayerAndSave(Player* player)
 {
     vector<Player*> allPlayers = this-> fileIo-> getPlayersList();
@@ -149,6 +198,11 @@ void GameBoardController::updatePlayerAndSave(Player* player)
     this-> fileIo-> SaveFile(&updatedPlayersList[0], updatedPlayersList.size());
 }
 
+/// \brief gets the chosen word of this round
+///
+/// \return string
+///
+///
 string GameBoardController::getChosenWord(){
     return this->chosenWord;
 }

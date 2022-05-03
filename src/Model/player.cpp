@@ -40,6 +40,11 @@ Player::Player(const string& name, int totalGamesPlayed, double winPercentage, i
     this-> isOnWinStreak = isOnWinStreak;
 }
 
+/// \brief prints the players stats formatted
+///
+/// \return string
+///
+///
 string Player::printPlayer()
 {
 
@@ -57,16 +62,32 @@ string Player::printPlayer()
 
 }
 
+/// \brief get if on win streak
+///
+/// \return bool
+///
+///
 bool Player::getIsOnWinStreak()
 {
     return this-> isOnWinStreak;
 }
 
+/// \brief sets the winstreak
+///
+/// \param isWinStreak bool
+/// \return void
+///
+///
 void Player::setIsOnWinStreak(bool isWinStreak)
 {
     this-> isOnWinStreak = isWinStreak;
 }
 
+/// \brief recalculates win percentage
+///
+/// \return void
+///
+///
 void Player::updateWinPercentage()
 {
     int totalGamesWon = this-> oneTry + this-> twoTry + this-> threeTry + this-> fourTry + this-> fiveTry + this-> sixTry;
@@ -77,12 +98,6 @@ void Player::updateWinPercentage()
     this->winPercentage = winPercentage;
 }
 
-/*
-int Player::getTotalWins()
-{
-
-}
-*/
 
 /** \brief set the user's name
  *
