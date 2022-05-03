@@ -59,11 +59,13 @@ void GameBoardController::setRepeatLetters(bool repeat)
 
 void GameBoardController::updateGameLostStats(Player* player)
 {
-
+    player-> setIsOnWinStreak(false);
+    player-> setTotalGamesPlayed(player-> getTotalGamesPlayed() + 1);
 }
 
 void GameBoardController::updateGameWonStats(Player* player, int numGuesses)
 {
+    player-> setIsOnWinStreak(true);
     const int singleGuess = 1;
     const int twoGuesses = 2;
     const int threeGuesses = 3;
@@ -97,7 +99,10 @@ void GameBoardController::updateGameWonStats(Player* player, int numGuesses)
         break;
     }
 
-    // handles new win streak and updating current win streak
+    player-> setTotalGamesPlayed(player-> getTotalGamesPlayed() + 1);
+
+    player-> updateWinPercentage();
+
     if (player-> getIsOnWinStreak())
     {
         player-> setcurrentWinStreak(player-> getCurrentWinStreak() + 1);

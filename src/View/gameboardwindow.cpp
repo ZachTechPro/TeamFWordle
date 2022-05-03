@@ -89,8 +89,6 @@ void GameBoardWindow::submitGuess()
     bool hasRunOutOfGuesses = this-> rowNumber >= 25;
     if (hasRunOutOfGuesses)
     {
-
-
         this-> showStatsPage();
     }
 

@@ -55,13 +55,14 @@ Player* FileIo::buildPlayer(vector<string> currentLineResults)
     int numFourTryWinsIndex = 8;
     int numFiveTryWinsIndex = 9;
     int numSixTryWinsIndex = 10;
+    int isOnWinStreakIndex = 11;
 
     string userName = currentLineResults[playerUserNameIndex];
     double winPercentage = stoi(currentLineResults[winPercentageIndex]);
     int totalGamesPlayed = stoi(currentLineResults[totalGamesPlayerIndex]);
     int currentWinStreak = stoi(currentLineResults[currentWinStreakIndex]);
     int maxWinStreak = stoi(currentLineResults[maxWinStreakIndex]);
-
+    bool isOnWinStreak = currentLineResults[isOnWinStreakIndex] == "1";
     int winDistribution [6];
     winDistribution[0] = stoi(currentLineResults[numOneTryWinsIndex]);
     winDistribution[1] = stoi(currentLineResults[numTwoTryWinsIndex]);
@@ -75,7 +76,8 @@ Player* FileIo::buildPlayer(vector<string> currentLineResults)
                                 totalGamesPlayed,
                                 currentWinStreak,
                                 maxWinStreak,
-                                winDistribution);
+                                winDistribution,
+                                isOnWinStreak);
     return player;
 }
 

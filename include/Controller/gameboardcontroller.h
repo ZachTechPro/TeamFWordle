@@ -9,6 +9,7 @@ namespace Controller
 {
 class GameBoardController
 {
+
 public:
     void updateGameLostStats(Player* player);
     void updateGameWonStats(Player* player, int numGuesses);

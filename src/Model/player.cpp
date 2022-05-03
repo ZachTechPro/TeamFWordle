@@ -1,5 +1,6 @@
 #include "player.h"
 #include <iostream>
+#define MULTILINE_STRING(s) #s
 using namespace std;
 namespace model
 {
@@ -16,8 +17,9 @@ Player::Player()
     this-> maxWinStreak = 0;
     this-> isOnWinStreak = false;
 }
-Player::Player(const string& name, int totalGamesPlayed, double winPercentage, int currentWinStreak, int maxWinStreak, int winDistribution[6])
+Player::Player(const string& name, int totalGamesPlayed, double winPercentage, int currentWinStreak, int maxWinStreak, int winDistribution[6], bool isOnWinStreak)
 {
+    this-> winDistribution = winDistribution;
     this->userName = name;
     this->totalGamesPlayed = totalGamesPlayed;
     this->winPercentage = winPercentage;
@@ -29,6 +31,24 @@ Player::Player(const string& name, int totalGamesPlayed, double winPercentage, i
     this->fourTry = winDistribution[3];
     this->fiveTry = winDistribution[4];
     this->sixTry = winDistribution[5];
+    this-> isOnWinStreak = isOnWinStreak;
+}
+
+string Player::printPlayer()
+{
+
+    string result = to_string(this-> getOneTryWins()) + "\n\n";
+    result += to_string(this-> getTwoTryWins()) + "\n\n";
+    result += to_string(this-> getThreeTryWins()) + "\n\n";
+    result += to_string(this-> getFourTryWins()) + "\n\n";
+    result += to_string(this-> getFiveTryWins()) + "\n\n";
+    result += to_string(this-> getSixTryWins()) + "\n\n\n\n";
+    result += string("total games played: ") + to_string(this-> getTotalGamesPlayed()) + "\n";
+    result += string("win percentage: ") + to_string(this-> getWinPercentage()) + "\n";
+    result += string("max win streak: ") + to_string(this-> getMaxWinStreak()) + "\n";
+
+  return result;
+
 }
 
 bool Player::getIsOnWinStreak()
@@ -36,6 +56,23 @@ bool Player::getIsOnWinStreak()
     return this-> isOnWinStreak;
 }
 
+void Player::setIsOnWinStreak(bool isWinStreak)
+{
+    this-> isOnWinStreak = isWinStreak;
+}
+
+void Player::updateWinPercentage()
+{
+    int totalGamesWon = this-> oneTry + this-> twoTry + this-> threeTry + this-> fourTry + this-> fiveTry + this-> sixTry;
+    int winPercentage = totalGamesWon / this-> totalGamesPlayed;
+}
+
+/*
+int Player::getTotalWins()
+{
+
+}
+*/
 
 /** \brief set the user's name
  *
@@ -267,10 +304,6 @@ void Player::setSixTryWins(int newWinNumber)
 {
     this->sixTry = newWinNumber;
 }
-
-
-
-
 
 /** \brief destructor
  */

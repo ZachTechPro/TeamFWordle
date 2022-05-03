@@ -7,12 +7,12 @@ namespace model
 class Player
 {
 public:
+    string printPlayer();
     void setUserName(const string& userName);
     void setTotalGamesPlayed(int totalGames);
     void setWinPercentage(double winPercentage);
     void setcurrentWinStreak(int currWinStreak);
     void setMaxWinStreak(int winStreak);
-
     double getWinPercentage();
     string getUserName();
     int getTotalGamesPlayed();
@@ -32,13 +32,16 @@ public:
     void setFourTryWins(int newWinNumber);
     void setFiveTryWins(int newWinNumber);
     void setSixTryWins(int newWinNumber);
-    Player(const string& name, int totalGamesPlayed, double winPercentage, int currentWinStreak, int maxWinStreak, int winDistribution[6]);
+    void updateWinPercentage();
+    void setIsOnWinStreak(bool isWinStreak);
+    Player(const string& name, int totalGamesPlayed, double winPercentage, int currentWinStreak, int maxWinStreak, int winDistribution[6], bool isOnWinStreak);
     Player();
     virtual ~Player();
 
 protected:
 
 private:
+    int* winDistribution;
     string userName;
     bool isOnWinStreak;
     double winPercentage;

@@ -3,6 +3,7 @@
 #include "okcancelwindow.h"
 #include <Fl/Fl_Chart.H>
 #include "player.h"
+#include <Fl/Fl_Box.H>
 using namespace model;
 namespace view
 {
@@ -21,6 +22,7 @@ private:
     void drawStats();
     Player* player;
     Fl_Chart* statsChart;
+    Fl_Box* outputLabel;
 };
 }
 #endif // GAMEOVERWINDOW_H
