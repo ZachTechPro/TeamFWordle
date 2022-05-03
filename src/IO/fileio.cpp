@@ -72,8 +72,8 @@ Player* FileIo::buildPlayer(vector<string> currentLineResults)
     winDistribution[5] = stoi(currentLineResults[numSixTryWinsIndex]);
 
     Player* player = new Player(userName,
-                                winPercentage,
                                 totalGamesPlayed,
+                                winPercentage,
                                 currentWinStreak,
                                 maxWinStreak,
                                 winDistribution,
@@ -174,7 +174,7 @@ bool FileIo::areCharactersUnique(string str)
 }
 void FileIo::SaveFile(Player* players[], int playerLength)
 {
-    string fileName = "users.csv";
+    string fileName = "users.txt";
     fstream file;
     file.open(fileName, ios::out);
     for(int i = 0; i < playerLength; i++)
