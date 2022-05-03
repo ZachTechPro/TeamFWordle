@@ -109,10 +109,10 @@ void GameBoardWindow::submitGuess()
 
         if (this-> hasGuessedCompletedWord)
         {
-            this-> gbController-> updateGameWonStats(this-> player, this-> rowNumber + 1);
+            this-> gbController-> updateGameWonStats(this-> player, this-> roundCount);
             this-> showStatsPage();
         }
-
+        this-> roundCount++;
         this-> rowNumber += 5;
     }
 }
@@ -170,6 +170,7 @@ void GameBoardWindow::showStatsPage()
 /**< private */
 void GameBoardWindow::performFirstTimeSetup()
 {
+    this-> roundCount = 1;
     this-> gbController = new GameBoardController();
     this-> hasGuessedCompletedWord = false;
     this-> buildWordleGrid();

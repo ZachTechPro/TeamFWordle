@@ -24,6 +24,7 @@ public:
 protected:
 
 private:
+    void updatePlayerAndSave(Player* player);
     bool repeatLetters = false;
     GuessChecker* guessChecker;
     string chosenWord;

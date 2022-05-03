@@ -61,6 +61,7 @@ void GameBoardController::updateGameLostStats(Player* player)
 {
     player-> setIsOnWinStreak(false);
     player-> setTotalGamesPlayed(player-> getTotalGamesPlayed() + 1);
+    this-> updatePlayerAndSave(player);
 }
 
 void GameBoardController::updateGameWonStats(Player* player, int numGuesses)
@@ -112,8 +113,25 @@ void GameBoardController::updateGameWonStats(Player* player, int numGuesses)
         }
     }
 
+    this-> updatePlayerAndSave(player);
 }
 
+void GameBoardController::updatePlayerAndSave(Player* player)
+{
+    vector<Player*> allPlayers = this-> fileIo-> getPlayersList();
+    vector<Player*> updatedPlayersList;
+    for (auto currPlayer : allPlayers)
+    {
+        if (currPlayer-> getUserName().compare(player-> getUserName()) != 0)
+        {
+            updatedPlayersList.push_back(currPlayer);
+        }
+    }
+
+    updatedPlayersList.push_back(player);
+    cout << "here" << endl;
+    this-> fileIo-> SaveFile(&updatedPlayersList[0], updatedPlayersList.size());
+}
 
 
 /** \brief Destructor
