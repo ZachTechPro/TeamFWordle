@@ -42,12 +42,12 @@ void GameOverWindow::setPlayer(Player* player)
 
 void GameOverWindow::okHandler()
 {
-
+    this-> hide();
 }
 
 void GameOverWindow::cancelHandler()
 {
-    cout << "click cancel to close the app" << endl;
+    exit(0);
 }
 
 GameOverWindow::~GameOverWindow()

@@ -17,6 +17,7 @@ class GameBoardWindow : public Fl_Window
 {
 
 private:
+    void resetBoard();
     int roundCount;
     bool replay = false;
     void checkForCompletedSolution(int* solutionFlags, int numCells);

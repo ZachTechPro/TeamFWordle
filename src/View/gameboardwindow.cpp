@@ -52,7 +52,6 @@ void GameBoardWindow::handleLetter(const string& letter)
         Fl_Input* last;
         for(int i = 0; i < 30; i++)
         {
-            cout<<this->wordGrid[i]->value();
             if(strlen(this->wordGrid[i]->value()) > 0)
             {
                 last = this->wordGrid[i];
@@ -62,10 +61,8 @@ void GameBoardWindow::handleLetter(const string& letter)
             {
                 return;
             }
-            if(i == (this->roundCount-1) * 5){
-                cout<<to_string(i);
-                cout<<to_string(this->roundCount);
-                cout<<to_string((this->roundCount-1) * 5);
+            if(i == (this->roundCount-1) * 5)
+            {
                 return;
             }
             last->value("");
@@ -81,7 +78,8 @@ void GameBoardWindow::handleLetter(const string& letter)
         {
             continue;
         }
-        if(i == this->roundCount * 5){
+        if(i == this->roundCount * 5)
+        {
             return;
         }
         this->wordGrid[i]->value(letterChar);
@@ -97,7 +95,8 @@ void GameBoardWindow::submitGuess()
 {
     string userGuess = "";
     int numCells = 4;
-    bool hasRunOutOfGuesses = this-> rowNumber >= 25;
+    int maxRowNumber = 25;
+    bool hasRunOutOfGuesses = this-> rowNumber >= maxRowNumber;
     if (hasRunOutOfGuesses)
     {
         this-> showStatsPage();
@@ -123,8 +122,12 @@ void GameBoardWindow::submitGuess()
             this-> gbController-> updateGameWonStats(this-> player, this-> roundCount);
             this-> showStatsPage();
         }
-        this-> roundCount++;
-        this-> rowNumber += 5;
+        else
+        {
+            int rowIncrement = 5;
+            this-> roundCount++;
+            this-> rowNumber += rowIncrement;
+        }
     }
 }
 
@@ -158,9 +161,10 @@ void GameBoardWindow::updateColorAndDisable(Fl_Input* inputCell)
 
 void GameBoardWindow::showStatsPage()
 {
-    for (int i = 0; i < 30; i++)
+    int numWordleCells = 30;
+    for (int currWordleCellNumber = 0; currWordleCellNumber < numWordleCells; currWordleCellNumber++)
     {
-        this-> wordGrid[i]-> deactivate();
+        this-> wordGrid[currWordleCellNumber]-> deactivate();
     }
 
     GameOverWindow gameOverWindow;
@@ -174,27 +178,44 @@ void GameBoardWindow::showStatsPage()
     }
     if (gameOverWindow.getWindowResult() == OKCancelWindow::WindowResult::OK)
     {
+        this-> resetBoard();
+        this-> performFirstTimeSetup();
+    }
+}
 
+void GameBoardWindow::resetBoard()
+{
+    for (int i = 0; i < 30; i++)
+    {
+        this-> wordGrid[i]-> value("");
+        this-> wordGrid[i]-> color(FL_WHITE);
+        this-> wordGrid[i]-> activate();
     }
 }
 
 /**< private */
 void GameBoardWindow::performFirstTimeSetup()
 {
-    this-> roundCount = 1;
-    this-> gbController = new GameBoardController();
-    this-> hasGuessedCompletedWord = false;
-    this-> buildWordleGrid();
-    this-> buildKeyboard();
-    this-> usernameLabel = new Fl_Box(50, 50, 100, 50, "welcome");
-    this-> usernameLabel-> box(Fl_Boxtype::FL_NO_BOX);
-    this-> submitGuessButton = new Fl_Button(320, 330, 70, 30, "Submit");
-    this-> submitGuessButton-> callback(cbSubmitGuess, this);
-    if(!this->replay){
+    if(!this->replay)
+    {
+        this-> gbController = new GameBoardController();
+        this-> buildWordleGrid();
+        this-> buildKeyboard();
+        this-> usernameLabel = new Fl_Box(50, 50, 100, 50, "welcome");
+        this-> usernameLabel-> box(Fl_Boxtype::FL_NO_BOX);
+        this-> submitGuessButton = new Fl_Button(320, 330, 70, 30, "Submit");
+        this-> submitGuessButton-> callback(cbSubmitGuess, this);
         this-> login();
+    }
+    if (this-> replay)
+    {
+        this-> submitGuessButton-> redraw();
+        this-> submitGuessButton-> callback(cbSubmitGuess, this);
     }
 
     this-> gbController-> loadWordsForPlay();
+    this-> roundCount = 1;
+    this-> hasGuessedCompletedWord = false;
     this-> rowNumber = 0;
 
     string name = "Welcome, " + this-> player-> getUserName() + "!";
