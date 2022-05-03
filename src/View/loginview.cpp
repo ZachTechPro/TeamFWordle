@@ -39,20 +39,46 @@ LoginView::LoginView() : OKCancelWindow(330, 215, "Login")
     end();
 }
 
+
+/// \brief WIll handle a cancel event that is emitted by the cancel button
+/// in this view
+///
+/// \return void
+///
+///
 void LoginView::cancelHandler()
 {
-    cout << "cancel" << endl;
+    exit(0);
 }
 
+/// \brief Will handle an ok event tht is emitted by the okay button
+/// in this view; Will start the process to login / create the user
+///
+/// \return void
+///
+///
 void LoginView::okHandler()
 {
     this-> controller-> loadOrCreatePlayer(this-> userNameInput-> value());
-        this-> hide();
+    this-> hide();
 }
+
+/// \brief checkbox to toggle the allowance of repeated letters within a guess word
+///
+/// \return bool -> true if checked; false otherwise
+///
+///
 bool LoginView::getCheckedRepeatLetters()
 {
     return this->repeatButton->value();
 }
+
+/// \brief Once the player is loaded, this will allow other pieces of the system to access the player
+/// that has been loaded into the application
+///
+/// \return Player* -- pointer to the current player
+///
+///
 Player* LoginView::getPlayer()
 {
     cout<<to_string(this->repeatButton->value());

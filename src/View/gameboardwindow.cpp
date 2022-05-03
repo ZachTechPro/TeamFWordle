@@ -39,12 +39,25 @@ void GameBoardWindow::cbSubmitGuess(Fl_Widget* widget, void* data)
     window-> submitGuess();
 }
 
+/// \brief callback for handling letter input
+///
+/// \param widget Fl_Widget* -- the FLTK Widget
+/// \param data void* -- the gameboard window
+/// \return void
+///
+///
 void GameBoardWindow::cbHandleLetter(Fl_Widget* widget, void* data)
 {
     GameBoardWindow* window = (GameBoardWindow*) data;
     window-> handleLetter(widget->label());
 }
 
+/// \brief Functionality to handle letter input per cell in the GameBoard
+///
+/// \param letter const string& -- a letter in their guess word
+/// \return void
+///
+///
 void GameBoardWindow::handleLetter(const string& letter)
 {
     if(letter == "del")
@@ -132,12 +145,13 @@ void GameBoardWindow::submitGuess()
     }
 }
 
+///< private
 void GameBoardWindow::checkForCompletedSolution(int* solutionFlags, int numCells)
 {
     this-> hasGuessedCompletedWord = this-> gbController-> checkForCompletedSolution(solutionFlags, numCells);
 }
 
-/**< private */
+///< private
 void GameBoardWindow::highLightLetterCell(Fl_Input* inputCell, int positionFlag)
 {
     if(positionFlag == 2)
@@ -160,6 +174,7 @@ void GameBoardWindow::updateColorAndDisable(Fl_Input* inputCell)
     inputCell-> deactivate();
 }
 
+///< private
 void GameBoardWindow::showStatsPage()
 {
     int numWordleCells = 30;
@@ -184,6 +199,7 @@ void GameBoardWindow::showStatsPage()
     }
 }
 
+///< private
 void GameBoardWindow::resetBoard()
 {
     for (int i = 0; i < 30; i++)
@@ -227,9 +243,9 @@ void GameBoardWindow::performFirstTimeSetup()
     this-> usernameLabel-> label(nameLabel);
     this->replay = true;
 
-    #ifdef DIAGNOSTIC_OUTPUT
+#ifdef DIAGNOSTIC_OUTPUT
     this->wordGuessLabel->label(wordLabel);
-    #endif
+#endif
 
 }
 

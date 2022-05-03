@@ -31,8 +31,6 @@ private:
     LoginController* controller;
     Fl_Check_Button* repeatButton;
     static void cbLogin(Fl_Widget* widget, void* data);
-    void login();
-
 
 };
 }

@@ -8,7 +8,6 @@ namespace Utils
  */
 GuessChecker::GuessChecker()
 {
-    this-> answer = "train"; // for testing purposes
 }
 
 /** \brief Will consume the user's guess and it will check to the degree of equality

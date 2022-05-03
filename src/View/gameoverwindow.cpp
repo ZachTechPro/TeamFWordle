@@ -7,6 +7,8 @@
 using namespace std;
 namespace view
 {
+/// \brief Constructor that derives OKCancelWindow widget
+///
 GameOverWindow::GameOverWindow() : OKCancelWindow(430, 415, "Login")
 {
     this-> setCancelLocation(80, 330);
@@ -20,6 +22,11 @@ GameOverWindow::GameOverWindow() : OKCancelWindow(430, 415, "Login")
     end();
 }
 
+/// \brief Will draw the user's game statistics in the window
+///
+/// \return void
+///
+///
 void GameOverWindow::drawStats()
 {
     this-> statsChart-> insert(1, this-> player-> getOneTryWins(), "1 guesses", 1);
@@ -33,22 +40,40 @@ void GameOverWindow::drawStats()
     outputLabel-> label(output);
 }
 
+/// \brief Will set the player
+///
+/// \param player Player* -- the currently logged in player
+/// \return void
+///
+///
 void GameOverWindow::setPlayer(Player* player)
 {
     this-> player = player;
     this-> drawStats();
 }
 
+/// \brief Event handler for ok button press
+///
+/// \return void
+///
+///
 void GameOverWindow::okHandler()
 {
     this-> hide();
 }
 
+/// \brief Event handler for cacncel button press
+///
+/// \return void
+///
+///
 void GameOverWindow::cancelHandler()
 {
     exit(0);
 }
 
+/// \brief Destructor
+///
 GameOverWindow::~GameOverWindow()
 {
     delete this-> statsChart;
