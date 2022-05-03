@@ -81,9 +81,7 @@ bool LoginView::getCheckedRepeatLetters()
 ///
 Player* LoginView::getPlayer()
 {
-    cout<<to_string(this->repeatButton->value());
     return this->controller->getCurrentPlayer();
-
 }
 
 

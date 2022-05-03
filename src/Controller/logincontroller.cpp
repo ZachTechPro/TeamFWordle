@@ -52,7 +52,7 @@ vector<Player*> LoginController::getActivePlayers()
 ///
 void LoginController::loadAllPlayers()
 {
-        this-> activePlayers = this-> fileIo-> getPlayersList();
+    this-> activePlayers = this-> fileIo-> getPlayersList();
 }
 
 /// \brief gets the current player

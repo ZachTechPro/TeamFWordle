@@ -6,8 +6,8 @@
 using namespace view;
 int main (int argc, char ** argv)
 {
-  GameBoardWindow gameWindow(540, 375, "Team F Wordle");
-  gameWindow.show();
-  int exitCode = Fl::run();
-  return(exitCode);
+    GameBoardWindow gameWindow(540, 375, "Team F Wordle");
+    gameWindow.show();
+    int exitCode = Fl::run();
+    return(exitCode);
 }

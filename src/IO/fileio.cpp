@@ -208,7 +208,6 @@ void FileIo::SaveFile(Player* players[], int playerLength)
                  + "," + to_string(player->getFourTryWins()) + "," + to_string(player->getFiveTryWins())
                  + "," + to_string(player->getSixTryWins())) + "," + to_string(player-> getIsOnWinStreak()) + "\n";
     }
-    cout << "done writing" << endl;
     file.close();
 
 }

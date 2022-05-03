@@ -92,9 +92,6 @@ void Player::updateWinPercentage()
 {
     int totalGamesWon = this-> oneTry + this-> twoTry + this-> threeTry + this-> fourTry + this-> fiveTry + this-> sixTry;
     double winPercentage = ((double)totalGamesWon / (double)this-> totalGamesPlayed * 100);
-    cout<<"Percent"<<endl;
-    cout<<to_string(totalGamesWon) +"/"+to_string(this->totalGamesPlayed)<<endl;
-    cout<<to_string(winPercentage);
     this->winPercentage = winPercentage;
 }
 

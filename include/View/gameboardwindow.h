@@ -17,6 +17,7 @@ class GameBoardWindow : public Fl_Window
 {
 
 private:
+    void resetKeyBoard();
     void resetBoard();
     int roundCount;
     bool replay = false;

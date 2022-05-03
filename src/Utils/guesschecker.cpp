@@ -39,7 +39,6 @@ int* GuessChecker::checkGuessAsCorrect(const string& userGuess, const string& ch
         }
 
     }
-    cout<<to_string(resultFlags[1]) + "" + to_string(resultFlags[2]) + "" + to_string(resultFlags[3]) + "" + to_string(resultFlags[4]) + "" + to_string(resultFlags[0]);
     return resultFlags;
 }
 

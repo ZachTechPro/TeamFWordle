@@ -26,19 +26,22 @@ GameBoardWindow::GameBoardWindow(int width, int height, const char* title) : Fl_
     this-> performFirstTimeSetup();
 }
 
-void GameBoardWindow::updateKeyboard(){
-    for(int i = 0; i < 30; i++){
-                string valueOfWord = string(this->wordGrid[i]->value());
-            for(int j = 0; j < 27; j++ ){
-                    string valueOfKey = string(this->keyboardGrid[j]->label());
-                if(valueOfKey == valueOfWord){
-                    this->keyboardGrid[j]->color(this->wordGrid[i]->color());
-                    this->keyboardGrid[j]->deactivate();
-                    this->keyboardGrid[j]->activate();
-                }
+///< private
+void GameBoardWindow::updateKeyboard()
+{
+    for(int i = 0; i < 30; i++)
+    {
+        string valueOfWord = string(this->wordGrid[i]->value());
+        for(int j = 0; j < 27; j++ )
+        {
+            string valueOfKey = string(this->keyboardGrid[j]->label());
+            if(valueOfKey == valueOfWord)
+            {
+                this->keyboardGrid[j]->color(this->wordGrid[i]->color());
+                this->keyboardGrid[j]->deactivate();
+                this->keyboardGrid[j]->activate();
             }
-
-
+        }
     }
 
 }
@@ -213,6 +216,7 @@ void GameBoardWindow::showStatsPage()
     if (gameOverWindow.getWindowResult() == OKCancelWindow::WindowResult::OK)
     {
         this-> resetBoard();
+        this-> resetKeyBoard();
         this-> performFirstTimeSetup();
     }
 }
@@ -220,11 +224,24 @@ void GameBoardWindow::showStatsPage()
 ///< private
 void GameBoardWindow::resetBoard()
 {
-    for (int i = 0; i < 30; i++)
+    int totalGuessCells = 30;
+    for (int i = 0; i < totalGuessCells; i++)
     {
         this-> wordGrid[i]-> value("");
         this-> wordGrid[i]-> color(FL_WHITE);
         this-> wordGrid[i]-> activate();
+    }
+}
+
+///< private
+void GameBoardWindow::resetKeyBoard()
+{
+    int totalKeys = 27;
+    for (int i = 0; i < totalKeys; i++)
+    {
+        this-> keyboardGrid[i]-> deactivate();
+        this-> keyboardGrid[i]-> color(FL_WHITE);
+        this-> keyboardGrid[i]-> activate();
     }
 }
 

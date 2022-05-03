@@ -25,8 +25,6 @@ void GameBoardController::loadWordsForPlay()
     {
         this->chosenWord = this-> fileIo->loadWordsNoDuplicateLetters();
     }
-
-    cout <<chosenWord << endl;
 }
 
 /// \brief Checks if the guess is the a usable word
@@ -38,8 +36,6 @@ void GameBoardController::loadWordsForPlay()
 bool GameBoardController::isValidGuess(const string& userGuess)
 {
     bool isValid = false;
-     cout << "here" << endl;
-     cout << this-> fileIo-> getWords().size();
     for (auto word : this-> fileIo-> getWords())
     {
         if (word.compare(userGuess) == 0)
@@ -194,7 +190,6 @@ void GameBoardController::updatePlayerAndSave(Player* player)
     }
 
     updatedPlayersList.push_back(player);
-    cout << "here" << endl;
     this-> fileIo-> SaveFile(&updatedPlayersList[0], updatedPlayersList.size());
 }
 
@@ -203,7 +198,8 @@ void GameBoardController::updatePlayerAndSave(Player* player)
 /// \return string
 ///
 ///
-string GameBoardController::getChosenWord(){
+string GameBoardController::getChosenWord()
+{
     return this->chosenWord;
 }
 
