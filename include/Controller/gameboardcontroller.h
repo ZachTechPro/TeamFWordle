@@ -11,6 +11,7 @@ class GameBoardController
 {
 
 public:
+    bool isValidGuess(const string& userGuess);
     void updateGameLostStats(Player* player);
     void updateGameWonStats(Player* player, int numGuesses);
     bool checkForCompletedSolution(int* solutionFlags, int numCells);

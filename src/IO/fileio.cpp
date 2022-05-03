@@ -81,6 +81,11 @@ Player* FileIo::buildPlayer(vector<string> currentLineResults)
     return player;
 }
 
+vector<string> FileIo::getWords()
+{
+    return this-> words;
+}
+
 
 vector<string> FileIo::splitLineData(const string& lineData)
 {
@@ -114,12 +119,12 @@ string FileIo::loadWords()
         {
             if(word.length() == 5)
             {
-
                 words.push_back(word);
                 counter++;
             }
         }
     }
+    this-> words = words;
     int random = rand() % words.size();
     return words[random];
 }
@@ -146,6 +151,7 @@ string FileIo::loadWordsNoDuplicateLetters()
             }
         }
     }
+    this-> words = words;
     int random = rand() % words.size();
     return words[random];
 
@@ -153,20 +159,13 @@ string FileIo::loadWordsNoDuplicateLetters()
 
 bool FileIo::areCharactersUnique(string str)
 {
-    // An integer to store presence/absence
-    // of 26 characters using its 32 bits.
     int checker = 0;
 
     for (int i = 0; i < str.length(); ++i)
     {
         int val = (str[i]-'a');
-
-        // If bit corresponding to current
-        // character is already set
         if ((checker & (1 << val)) > 0)
             return false;
-
-        // set bit in checker
         checker |=  (1 << val);
     }
 

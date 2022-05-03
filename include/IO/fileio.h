@@ -12,6 +12,7 @@ namespace IO
 class FileIo
 {
 public:
+    vector<string> getWords();
     Player* loginOrCreatePlayer(const string& userName);
     vector<Player*> getPlayersList();
     bool canFindUser(const string& userName);
@@ -25,7 +26,7 @@ protected:
 
 private:
     void loadPlayers();
-
+    vector<string> words;
     bool areCharactersUnique(string str);
     Player* buildPlayer(vector<string> currentLineResults);
     vector<string> splitLineData(const string& lineData);
